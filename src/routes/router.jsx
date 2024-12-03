@@ -2,18 +2,37 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../components/ErrorPage";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
+import AllMovies from "../pages/AllMovies";
+import AddMovie from "../pages/AddMovie";
+import MyFavorites from "../pages/MyFavorites";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
-    children:[
-        {
-            path: "/",
-            element:<Home></Home> ,
-          },
-    ]
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/allMovies",
+        element: <AllMovies></AllMovies>,
+      },
+      {
+        path: "/addMovie",
+        element: <AddMovie></AddMovie>,
+      },
+      {
+        path: "/myFavorites",
+        element: <MyFavorites></MyFavorites>,
+      },
+      // {
+      //   path: "/",
+      //   element:<Home></Home> ,
+      // },
+    ],
   },
 ]);
 

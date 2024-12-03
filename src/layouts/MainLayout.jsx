@@ -9,6 +9,7 @@ const MainLayout = () => {
         <div>
           
             <Navbar></Navbar>
+            <div className="h-32"></div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>
