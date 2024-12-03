@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        clifford: "#da373d",
+        primary: "#536493",
+        tab: "#ffffff",
+      },
+        fontFamily: {
+          exo: ["Exo 2"]
+        }
+    },
   },
   plugins: [
     require('daisyui'),
