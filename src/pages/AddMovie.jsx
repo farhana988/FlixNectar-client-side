@@ -5,6 +5,7 @@ import Heading from "../components/Heading";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Rating } from "react-simple-star-rating";
+import Swal from "sweetalert2";
 
 const AddMovie = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -18,6 +19,42 @@ const AddMovie = () => {
     setRating(rate);
 
   };
+  const handleAddMovie = (e) => {
+    e.preventDefault();
+    const photo = e.target.photo.value;
+    const name = e.target.name.value;
+    const genre = e.target.genre.value;
+    const duration = e.target.duration.value;
+    const releaseYear = e.target.releaseYear.value;
+    const summary = e.target.summary.value;
+   
+
+    const newMovie = { photo, name, genre, duration, releaseYear, rating, summary, }
+   
+    fetch('http://localhost:5000/movie', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newMovie)
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.insertedId) {
+                
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'movie added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+                e.target.reset();
+                setRating(0);
+                setSelectedDate(null);
+            }
+        })
+   
+  };
 
   return (
     <div className="lg:w-3/4 mx-auto">
@@ -29,7 +66,7 @@ const AddMovie = () => {
       ></Heading>
 
       <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-        <form className="card-body">
+        <form onSubmit={handleAddMovie} className="card-body">
           <div className="flex flex-col lg:flex-row gap-5">
             {/* movie poster*/}
             <div className="form-control flex-1">
@@ -125,12 +162,12 @@ const AddMovie = () => {
                   onClick={handleRating} 
                  
                   type="text"
-                  name="rating"
+                 
                   placeholder="rating "
                   required
                 />
 
-                <div className="p-3">{rating}</div>
+                <div  name="rating" className="p-3">{rating}</div>
               </div>
 
            
