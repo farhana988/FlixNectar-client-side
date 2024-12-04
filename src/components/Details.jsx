@@ -1,25 +1,13 @@
-/* eslint-disable react/prop-types */
 // import React from 'react';
 
-import { Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
-
-
-const MovieCard = ({movie}) => {
-  
-    const {_id, photo, name, genre, duration, releaseYear, rating, } = movie
-  return (
-    <div >
- 
-  
-
-
-
-
-
-
-
-<div
+const Details = () => {
+    const movie = useLoaderData()
+    const {photo, name, genre, duration, releaseYear, rating,summary } = movie
+    return (
+        <div>
+            <div
       className="card card-compact  shadow-xl bg-white"
     >
       <figure>
@@ -32,18 +20,26 @@ const MovieCard = ({movie}) => {
       <div className="card-body">
         <h2 className="card-title ">{name}</h2>
         { genre}, {duration}, {releaseYear},rating: { rating}, 
+        <br />
+        {summary}
        
         
         <div className="card-actions justify-end">
           <button className="btn bg-primary text-white lg:text-xl">
-            <Link to= {`/details/${_id}`}>  See Details</Link>
-        
+            
+          Delete Movie
+          </button>
+          <button className="btn bg-primary text-white lg:text-xl">
+            
+          Add to Favorite
+
+
           </button>
         </div>
       </div>
     </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default MovieCard;
+export default Details;
