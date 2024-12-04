@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -24,6 +24,18 @@ const Login = () => {
       .catch((e) => {
         console.log(e);
       });
+  };
+
+  const handleGoogleLogIn = () => {
+    signInWithGoogle()
+      .then(() => {
+     
+        navigate(location.state?.from || '/');
+      })
+      .catch((e) => {
+        console.log(e);
+        });
+    
   };
   return (
     <div>
@@ -115,7 +127,9 @@ const Login = () => {
               <div className="divider text-primary font-bold text-xl">OR</div>
               <div className="space-y-4">
                 {/* Google login button */}
-                <button className="pb-8 w-full flex items-center justify-center gap-2">
+                <button 
+                 onClick={handleGoogleLogIn}
+                className="pb-8 w-full flex items-center justify-center gap-2">
                   <img src={googleLogo} alt="Google" className="w-6 h-6" />
                   Continue with Google
                 </button>

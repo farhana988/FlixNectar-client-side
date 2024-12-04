@@ -7,7 +7,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Rating } from "react-simple-star-rating";
 import Swal from "sweetalert2";
 
+
 const AddMovie = () => {
+
+ 
   const [selectedDate, setSelectedDate] = useState(null);
   const [rating, setRating] = useState(0);
   const [photoError, setPhotoError] = useState("");
@@ -34,6 +37,8 @@ const AddMovie = () => {
     const duration = e.target.duration.value;
     const releaseYear = e.target.releaseYear.value;
     const summary = e.target.summary.value;
+
+ 
 
 
     let isValid = true;
@@ -78,7 +83,7 @@ const AddMovie = () => {
 
     if (!isValid) return; 
 
-    const newMovie = { photo, name, genre, duration, releaseYear, rating, summary, }
+    const newMovie = { photo, name, genre, duration, releaseYear, rating, summary }
    
     fetch('http://localhost:5000/movie', {
         method: 'POST',

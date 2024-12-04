@@ -8,6 +8,7 @@ import MyFavorites from "../pages/MyFavorites";
 import Details from "../components/Details";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +28,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/addMovie",
-        element: <AddMovie></AddMovie>,
+        element: <PrivateRoute><AddMovie></AddMovie></PrivateRoute> ,
       },
       {
-        path: "/myFavorites",
-        element: <MyFavorites></MyFavorites>,
+        path: "/myFavorites/:email",
+        element: <PrivateRoute><MyFavorites></MyFavorites></PrivateRoute> ,
+        loader: ({params})=> fetch(`http://localhost:5000/favorites/${params.email}`)
       },
       // {
       //   path: "/extra route",
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
       // },
        {
         path: "/details/:id",
-        element:<Details></Details>,
+        element:<PrivateRoute><Details></Details></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/movie/${params.id}`)
       },
       {

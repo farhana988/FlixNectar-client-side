@@ -6,7 +6,9 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext);
+//  const email =user.email
   const links = (
+    
     <>
       {/* home */}
       <NavLink
@@ -49,7 +51,7 @@ const Navbar = () => {
       </NavLink>
       {/* my favorites */}
       <NavLink
-        to="/myFavorites"
+        // to={`/myFavorites/${email}`}
         className={({ isActive }) =>
           ` ${
             isActive
