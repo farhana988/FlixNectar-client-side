@@ -1,10 +1,14 @@
 // import React from 'react';
 
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, handleSignOut } = useContext(AuthContext);
   const links = (
     <>
+      {/* home */}
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -17,7 +21,7 @@ const Navbar = () => {
       >
         <i> Home</i>
       </NavLink>
-
+      {/* all movies */}
       <NavLink
         to="/allMovies"
         className={({ isActive }) =>
@@ -30,7 +34,7 @@ const Navbar = () => {
       >
         <i>All Movies</i>
       </NavLink>
-
+      {/* add movies */}
       <NavLink
         to="/addMovie"
         className={({ isActive }) =>
@@ -43,7 +47,7 @@ const Navbar = () => {
       >
         <i>Add Movie </i>
       </NavLink>
-
+      {/* my favorites */}
       <NavLink
         to="/myFavorites"
         className={({ isActive }) =>
@@ -56,6 +60,7 @@ const Navbar = () => {
       >
         <i> My Favorites</i>
       </NavLink>
+      {/* extra */}
       <NavLink
         to="/extra"
         className={({ isActive }) =>
@@ -113,13 +118,42 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-10">{links}</ul>
         </div>
         <div className="navbar-end ">
-          <button className="btn bg-primary mx-4 text-white   lg:text-xl">
-            Login
-          </button>
-
-          <button className="btn bg-primary mr-4 text-white   lg:text-xl">
-            Reg
-          </button>
+          {user?.email ? (
+            <div className="flex gap-2 justify-center items-center">
+              <div className="user-info relative ">
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  className="ring-2 ring-offset-4 ring-primary w-10 h-10 rounded-full"
+                />
+                <div
+                  className="user-name absolute bottom--10 left-0 w-full text-xs  text-center
+                    font-semibold p-2 rounded opacity-0 transition-opacity duration-300"
+                >
+                  {user.displayName}
+                </div>
+              </div>
+              <button
+                className="btn bg-primary mx-4 text-white   lg:text-xl"
+                onClick={handleSignOut}
+              >
+                logout
+              </button>
+            </div>
+          ) : (
+            <div>
+              <NavLink to="/login">
+                <button className="btn bg-primary mr-4 text-white   lg:text-xl">
+                  Login
+                </button>
+              </NavLink>
+              <NavLink to="/register">
+                <button className="btn bg-primary mr-4 text-white   lg:text-xl">
+                  Register
+                </button>
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </div>
