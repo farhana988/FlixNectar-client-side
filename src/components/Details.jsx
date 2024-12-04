@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useContext,  } from "react";
@@ -82,7 +82,6 @@ const Details = () => {
 
   return (
     <div>
-      <Link to={`/myFavorites/${email}`}>my fav</Link>
       <div className="card card-compact  shadow-xl bg-white">
         <figure>
           <img

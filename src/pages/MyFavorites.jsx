@@ -4,10 +4,15 @@ import {  useLoaderData } from "react-router-dom";
 
 import FavoriteCard from "../components/FavoriteCard";
 import Heading from "../components/Heading";
+import { useState } from "react";
 
 const MyFavorites = () => {
     const favorites = useLoaderData()
-    console.log(favorites)
+   
+    const[loadedFavorite, setLoadedFavorite]=useState(favorites)
+
+
+
     return (
         <div>
           <Heading
@@ -16,10 +21,11 @@ const MyFavorites = () => {
           ></Heading>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
-          {favorites.map((favorite) => (
+          {loadedFavorite.map((favorite) => (
            <FavoriteCard
            favorite={favorite}
-              
+              loadedFavorite={loadedFavorite}
+              setLoadedFavorite={setLoadedFavorite}
               key={favorite._id}
             ></FavoriteCard>
           ))}

@@ -1,9 +1,48 @@
 /* eslint-disable react/prop-types */
 // import React from 'react';
 
-const FavoriteCard = ({favorite}) => {
+import Swal from "sweetalert2";
+
+const FavoriteCard = ({favorite, loadedFavorite, setLoadedFavorite}) => {
   
-    const { photo, name, genre, duration, releaseYear, rating, } = favorite
+    const {_id, photo, name, genre, duration, releaseYear, rating, } = favorite
+
+    const handleDelete = _id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/favorites/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+
+                          
+                            const remainingFavorites = loadedFavorite.filter(favorite => favorite._id !== _id);
+                            setLoadedFavorite(remainingFavorites);
+
+                        }
+                    })
+
+            }
+        });
+    }
+
   return (
     <div >
  
@@ -31,7 +70,10 @@ const FavoriteCard = ({favorite}) => {
        
         
         <div className="card-actions justify-end">
-          <button className="btn bg-primary text-white lg:text-xl">
+          <button
+          
+          onClick={() => handleDelete(_id)}
+           className="btn bg-primary text-white lg:text-xl">
           delete
         
           </button>
