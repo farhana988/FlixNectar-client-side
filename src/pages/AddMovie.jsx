@@ -10,6 +10,13 @@ import Swal from "sweetalert2";
 const AddMovie = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [rating, setRating] = useState(0);
+  const [photoError, setPhotoError] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [genreError, setGenreError] = useState("");
+  const [durationError, setDurationError] = useState("");
+  const [releaseYearError, setReleaseYearError] = useState("");
+  const [ratingError, setRatingError] = useState("");
+  const [summaryError, setSummaryError] = useState("");
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -27,7 +34,51 @@ const AddMovie = () => {
     const duration = e.target.duration.value;
     const releaseYear = e.target.releaseYear.value;
     const summary = e.target.summary.value;
+
+
+    let isValid = true;
+    // Reset error states
+    setPhotoError("");
+    setNameError("");
+    setGenreError("");
+    setDurationError("");
+    setReleaseYearError("");
+    setRatingError("");
+    setSummaryError("");
+
    
+    // Validation checks
+    if (!photo || !isValidURL(photo)) {
+      setPhotoError("Please provide a valid image URL for the movie poster.");
+      isValid = false;
+    }
+    if (!name || name.length < 2) {
+      setNameError("Movie title must have at least 2 characters.");
+      isValid = false;
+    }
+    if (!genre) {
+      setGenreError("Please select a genre.");
+      isValid = false;
+    }
+    if (!duration || isNaN(duration) || duration <= 60) {
+      setDurationError("Duration must be a number greater than 60 minutes.");
+      isValid = false;
+    }
+
+    if (!releaseYear) {
+      setReleaseYearError("Please select a release year.");
+      isValid = false;
+    }
+    if (rating === 0) {
+      setRatingError("Please select a rating.");
+      isValid = false;
+    }
+    if (!summary || summary.length < 10) {
+      setSummaryError("Summary must be at least 10 characters long.");
+      isValid = false;
+    }
+
+    if (!isValid) return; // If any validation fails, stop form submission
 
     const newMovie = { photo, name, genre, duration, releaseYear, rating, summary, }
    
@@ -56,6 +107,18 @@ const AddMovie = () => {
    
   };
 
+  // Helper function to validate URLs
+  const isValidURL = (string) => {
+    try {
+      new URL(string);
+      return true;
+    } catch (err) {
+      console.log(err)
+      return false;
+    }
+  };
+
+
   return (
     <div className="lg:w-3/4 mx-auto">
       <Heading
@@ -80,6 +143,7 @@ const AddMovie = () => {
                 className="input input-bordered"
                 required
               />
+              {photoError && <p className="text-red-500 text-sm">{photoError}</p>}
             </div>
             {/* movie title */}
             <div className="form-control flex-1">
@@ -93,6 +157,7 @@ const AddMovie = () => {
                 className="input input-bordered"
                 required
               />
+              {nameError && <p className="text-red-500 text-sm">{nameError}</p>}
             </div>
           </div>
 
@@ -117,6 +182,7 @@ const AddMovie = () => {
                 <option value="documentary">Documentary</option>
                 <option value="animation">Animation</option>
               </select>
+              {genreError && <p className="text-red-500 text-sm">{genreError}</p>}
             </div>
             {/* duration */}
             <div className="form-control flex-1">
@@ -124,12 +190,13 @@ const AddMovie = () => {
                 <span className="label-text">Duration</span>
               </label>
               <input
-                type="number"
+                type="text"
                 name="duration"
                 placeholder="duration"
                 className="input input-bordered"
                 required
               />
+               {durationError && <p className="text-red-500 text-sm">{durationError}</p>}
             </div>
           </div>
 
@@ -147,7 +214,9 @@ const AddMovie = () => {
                 dateFormat="yyyy"
                 placeholderText="Select a year"
                 className="input input-bordered w-full select"
+                required
               />
+               {releaseYearError && <p className="text-red-500 text-sm">{releaseYearError}</p>}
             </div>
             {/* rating */}
             <div className="form-control flex-1 ">
@@ -169,7 +238,7 @@ const AddMovie = () => {
 
                 <div  name="rating" className="p-3">{rating}</div>
               </div>
-
+              {ratingError && <p className="text-red-500 text-sm">{ratingError}</p>}
            
             </div>
           </div>
@@ -186,6 +255,7 @@ const AddMovie = () => {
               className="input input-bordered h-full p-4"
               required
             />
+              {summaryError && <p className="text-red-500 text-sm">{summaryError}</p>}
           </div>
 
           <div className="form-control mt-6">
