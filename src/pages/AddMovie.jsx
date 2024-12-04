@@ -37,7 +37,6 @@ const AddMovie = () => {
 
 
     let isValid = true;
-    // Reset error states
     setPhotoError("");
     setNameError("");
     setGenreError("");
@@ -47,7 +46,6 @@ const AddMovie = () => {
     setSummaryError("");
 
    
-    // Validation checks
     if (!photo || !isValidURL(photo)) {
       setPhotoError("Please provide a valid image URL for the movie poster.");
       isValid = false;
@@ -78,7 +76,7 @@ const AddMovie = () => {
       isValid = false;
     }
 
-    if (!isValid) return; // If any validation fails, stop form submission
+    if (!isValid) return; 
 
     const newMovie = { photo, name, genre, duration, releaseYear, rating, summary, }
    
@@ -107,7 +105,6 @@ const AddMovie = () => {
    
   };
 
-  // Helper function to validate URLs
   const isValidURL = (string) => {
     try {
       new URL(string);
