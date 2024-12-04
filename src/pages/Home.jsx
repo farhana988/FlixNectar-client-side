@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import Heading from "../components/Heading";
 import MovieCard from "../components/movieCard";
@@ -31,7 +31,7 @@ const Home = () => {
              
              className="
              btn bg-primary ring-2 ring-offset-4 ring-primary text-white lg:text-xl mt-5">
-                Show More
+              <Link to="/allMovies">See all movies</Link>  
             </button>
             </div>
       </section>
