@@ -1,10 +1,56 @@
 // import React from 'react';
 
-import { useLoaderData } from "react-router-dom";
+
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 const Details = () => {
     const movie = useLoaderData()
-    const {photo, name, genre, duration, releaseYear, rating,summary } = movie
+    const {_id,photo, name, genre, duration, releaseYear, rating,summary } = movie
+  
+  // Initialize useNavigate
+  const navigate = useNavigate();
+
+  const handleDelete = () => {
+ 
+    
+    // Send DELETE request
+    fetch(`http://localhost:5000/movie/${_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.deletedCount === 1) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(() => {
+          // After successful deletion, navigate to the All Movies page
+          navigate('/allMovies');
+        });
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Failed to delete the movie.',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
+      }
+    })
+  };
+
+    
+
+
     return (
         <div>
             <div
@@ -25,7 +71,8 @@ const Details = () => {
        
         
         <div className="card-actions justify-end">
-          <button className="btn bg-primary text-white lg:text-xl">
+          <button onClick={handleDelete}
+           className="btn bg-primary text-white lg:text-xl">
             
           Delete Movie
           </button>
