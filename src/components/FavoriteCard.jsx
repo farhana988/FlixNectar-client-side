@@ -4,7 +4,7 @@
 import Swal from "sweetalert2";
 
 const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
-  const { _id, photo, name, genre, duration, releaseYear, rating } = favorite;
+  const { _id, photo, name, genre, duration, releaseYear, rating,  } = favorite;
   const validRating =
     typeof rating === "number" && !isNaN(rating) ? Math.floor(rating) : 0;
 
