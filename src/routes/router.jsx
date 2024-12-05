@@ -39,10 +39,11 @@ const router = createBrowserRouter([
         element: <PrivateRoute><MyFavorites></MyFavorites></PrivateRoute> ,
         loader: ({params})=> fetch(`http://localhost:5000/favorites/${params.email}`)
       },
-      // {
-      //   path: "/extra route",
-      //   element:<Home></Home> ,
-      // },
+      {
+        path: "/watch",
+        element:<WatchParty></WatchParty> ,
+        loader: ()=>fetch('./watch.json')
+      },
        {
         path: "/details/:id",
         element:<PrivateRoute><Details></Details></PrivateRoute>,
@@ -61,11 +62,7 @@ const router = createBrowserRouter([
         element: <Update></Update>,
         loader: ({params})=> fetch(`http://localhost:5000/movie/${params.id}`)
       },
-      {
-        path: "/watch",
-        element:<WatchParty></WatchParty> ,
-        loader: ()=>fetch('./watch.json')
-      },
+     
      
     ],
   },

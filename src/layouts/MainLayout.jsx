@@ -9,14 +9,8 @@ const MainLayout = () => {
    
     return (
         <div>
-          
-            <Navbar></Navbar>
-            <div className="h-32"></div>
-            
+            <Navbar></Navbar> 
             <Outlet></Outlet>
-          
-              
-           
             <Footer></Footer>
         </div>
     );

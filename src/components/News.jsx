@@ -33,7 +33,7 @@ const News = () => {
       {/* Title  */}
       <Heading
       title={'Movie News and Articles'}
-      subtitle={'Stay updated with the latest in the film industry'}
+      subtitle={'Get the latest updates, exclusive interviews, and behind-the-scenes insights from the world of cinema. Stay in the know!'}
       ></Heading>
      
 

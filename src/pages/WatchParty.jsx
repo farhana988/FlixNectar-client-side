@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import Heading from "../components/Heading";
 
 const WatchParty = () => {
-  const movies = useLoaderData() ;
+  const movies = useLoaderData();
 
   const [randomMovies, setRandomMovies] = useState([]);
 
@@ -22,9 +22,14 @@ const WatchParty = () => {
   }, [movies]);
 
   return (
-    <div>
-      <Heading title={"Watch Party"} subtitle={"aa"}></Heading>
-      <div className=" bg-white flex justify-center items-center ">
+    <div className=" pt-10">
+      <Heading
+        title={"Watch Party"}
+        subtitle={
+          "Let’s watch and enjoy great films together! Pick a movie, grab some snacks, and let’s share the experience. Feel free to invite others and make it a fun, interactive movie night!"
+        }
+      ></Heading>
+      <div className=" flex justify-center items-center ">
         <div className="grid  gap-8 ">
           {randomMovies.map((movie, index) => (
             <div key={index} className=" w-[900px] shadow-xl p-6 rounded-xl">
@@ -53,16 +58,15 @@ const WatchParty = () => {
                   </div>
                 </div>
               </div>
-                <div className="card-body space-y-2">
-                  <h2 className="text-center w-72">Comments</h2>
-                  {movie.comments?.map((comment, idx) => (
-                    <p key={idx} className="text-sm italic ">
-                      {comment}
-                    </p>
-                  ))}
-                </div>
+              <div className="card-body space-y-2">
+                <h2 className="text-center w-72">Comments</h2>
+                {movie.comments?.map((comment, idx) => (
+                  <p key={idx} className="text-sm italic ">
+                    {comment}
+                  </p>
+                ))}
               </div>
-            
+            </div>
           ))}
         </div>
       </div>

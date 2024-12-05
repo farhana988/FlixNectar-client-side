@@ -124,11 +124,11 @@ const AddMovie = () => {
 
 
   return (
-    <div className="lg:w-3/4 mx-auto">
+    <div className="lg:w-3/4 mx-auto  pt-10">
       <Heading
         title={"Add movie"}
         subtitle={
-          "Want to share your favorite films with others? It is easy to add movies to FlixNectar! Simply fill in the details, upload a poster or image, and share your movie with the community. Let others discover, enjoy, and add to their own favorites list. Your movie recommendations could become the next big hit!"
+          "Share your favorite films on FlixNectar! Just add movie details, upload a poster, and let the community discover and enjoy your picks. Your recommendations could be the next big hit!"
         }
       ></Heading>
 

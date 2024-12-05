@@ -4,6 +4,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
+import Heading from "./Heading";
 
 const Details = () => {
   const { user } = useContext(AuthContext);
@@ -103,7 +104,11 @@ const Details = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pt-10">
+      <Heading
+      title={'Movie Details'}
+      subtitle={'Explore everything you need to know about this film—genre, duration, released year, reviews, and more. Dive deeper into the story, discover behind-the-scenes insights, and get all the essential info to enhance your movie experience!'}
+      ></Heading>
       <div className="card card-compact  shadow-xl bg-white p-6">
         <div className="flex flex-row gap-10">
           {/* image */}

@@ -14,10 +14,10 @@ const MyFavorites = () => {
 
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto  pt-10">
           <Heading
-          title={'my'}
-          subtitle={'kk'}
+          title={'My Favorite Films'}
+          subtitle={'Here’s a collection of movies that have left a lasting impact on me. Whether its the storytelling, characters, or visuals, these films hold a special place in my heart.'}
           ></Heading>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
