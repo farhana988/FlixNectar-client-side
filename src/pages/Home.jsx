@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Heading from "../components/Heading";
 import MovieCard from "../components/movieCard";
 import Upcoming from "../components/Upcoming";
+import News from "../components/News";
 
 const Home = () => {
   const movies = useLoaderData();
@@ -38,6 +39,10 @@ const Home = () => {
       </section>
       {/* upcoming movies */}
       <Upcoming></Upcoming>
+
+      <News></News>
+
+      
     </div>
   );
 };

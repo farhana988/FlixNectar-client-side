@@ -1,0 +1,96 @@
+
+{
+    "movieNews": [
+      {
+        "id": 1,
+        "title": "Breaking News: Upcoming Movie Release!",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Get the latest details on the upcoming blockbuster that's making waves in Hollywood...",
+        "link": "/news/1"
+      },
+      {
+        "id": 2,
+        "title": "Director's New Film Announced",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Get all the details about the latest film from acclaimed director John Doe...",
+        "link": "/news/2"
+      },
+      {
+        "id": 3,
+        "title": "Casting News: New Star for Sequel",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Discover the new casting announcement for the highly anticipated movie sequel...",
+        "link": "/news/3"
+      }
+    ],
+    "interviews": [
+      {
+        "id": 1,
+        "title": "Exclusive Interview with Jane Doe",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Actress Jane Doe talks about her role in the upcoming thriller...",
+        "link": "/interviews/1"
+      },
+      {
+        "id": 2,
+        "title": "Director Talks About Vision for New Movie",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Director John Smith discusses his creative process behind the highly anticipated film...",
+        "link": "/interviews/2"
+      },
+      {
+        "id": 3,
+        "title": "Behind the Scenes with Tom Cruise",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Exclusive behind-the-scenes footage and interview with the star of the action hit...",
+        "link": "/interviews/3"
+      }
+    ],
+    "filmReviews": [
+      {
+        "id": 1,
+        "title": "Movie Review: The Dark Knight Returns",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "An in-depth review of the long-awaited return of Batman...",
+        "link": "/reviews/1"
+      },
+      {
+        "id": 2,
+        "title": "Review: A Cinematic Masterpiece",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "This review dives deep into the artistry of the latest critically acclaimed movie...",
+        "link": "/reviews/2"
+      },
+      {
+        "id": 3,
+        "title": "Movie Review: Sci-Fi Thriller",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Our detailed review of the thrilling new sci-fi film...",
+        "link": "/reviews/3"
+      }
+    ],
+    "behindTheScenes": [
+      {
+        "id": 1,
+        "title": "Making of the Blockbuster Film",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Get an exclusive look at how the new action movie came to life...",
+        "link": "/behind-the-scenes/1"
+      },
+      {
+        "id": 2,
+        "title": "How They Built the Movie Sets",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "Discover the incredible craftsmanship behind the stunning movie sets...",
+        "link": "/behind-the-scenes/2"
+      },
+      {
+        "id": 3,
+        "title": "From Script to Screen: The Journey",
+        "image": "https://via.placeholder.com/300x200",
+        "description": "An inside look at the creative process from the writer's desk to the big screen...",
+        "link": "/behind-the-scenes/3"
+      }
+    ]
+  }
+  
