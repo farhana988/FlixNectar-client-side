@@ -3,19 +3,21 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useContext,  } from "react";
+import { useContext, useState } from "react";
 
 const Details = () => {
   const { user } = useContext(AuthContext);
   const movie = useLoaderData();
+
   const { _id, photo, name, genre, duration, releaseYear, rating, summary } =
     movie;
-
+  const validRating =
+    typeof rating === "number" && !isNaN(rating) ? Math.floor(rating) : 0;
   const navigate = useNavigate();
   const email = user.email;
-
-
-
+    //  summary
+    const [isExpanded, setIsExpanded] = useState(false);
+    const toggleSummary = () => setIsExpanded(!isExpanded);
 
   const handleDelete = () => {
     fetch(`http://localhost:5000/movie/${_id}`, {
@@ -69,8 +71,6 @@ const Details = () => {
     })
       .then((res) => res.json())
       .then(() => {
-   
-    
         Swal.fire({
           title: "Added to Favorites!",
           text: "This movie is now in your favorites.",
@@ -81,20 +81,70 @@ const Details = () => {
   };
 
   return (
-    <div>
-      <div className="card card-compact  shadow-xl bg-white">
-        <figure>
+    <div className="container mx-auto">
+      <div className="card card-compact  shadow-xl bg-white p-6">
+        
+        <div className="flex flex-row gap-10">
+          {/* image */}
+          <div>
+          <figure>
           <img
-            className="w-10/12  h-40 rounded-xl mt-8"
+            className="w-[600px] h-80 object-cover rounded-lg"
             src={photo}
-            alt="Shoes"
+            alt={name}
           />
         </figure>
+          </div>
+          {/* details */}
+          <div>
+          <h2 className="text-3xl font-bold text-gray-800">{name}</h2>
+          <p className="text-sm text-gray-500 mt-2">
+            <span className="font-semibold">Genre:</span> {genre}
+          </p>
+          <p className="text-sm text-gray-500">
+            <span className="font-semibold">Duration:</span> {duration} min
+          </p>
+
+          <p className="text-sm text-gray-500">
+            <span className="font-semibold">Release Year:</span> {releaseYear}
+          </p>
+
+          <div className="flex items-center mt-2">
+            {[...Array(validRating)].map((_, index) => (
+              <svg
+                key={index}
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 text-yellow-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 15.27l-6.18 3.63 1.64-7.03L.46 6.93l7.19-.61L10 0l2.35 6.31 7.19.61-5.99 4.94 1.64 7.03L10 15.27z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            ))}
+          </div>
+          </div>
+        </div>
         <div className="card-body">
-          <h2 className="card-title ">{name}</h2>
-          {genre}, {duration}, {releaseYear},rating: {rating},
-          <br />
-          {summary}
+         
+
+        {/* Summary */}
+        <div className="mt-6 text-lg text-gray-500 mb-5">
+          <h2 className="text-3xl font-bold text-gray-800 mb-5">Summary</h2>
+          <p className="break-words">
+            {isExpanded ? summary : `${summary.slice(0, 396)}...`}
+          </p>
+          <button
+            onClick={toggleSummary}
+            className="text-blue-500 hover:underline mt-2"
+          >
+            {isExpanded ? "Show Less" : "Read More"}
+          </button>
+        </div>
           <div className="card-actions justify-end">
             <button
               onClick={handleDelete}
@@ -104,20 +154,12 @@ const Details = () => {
             </button>
             <button
               onClick={handleAddTOFavorite}
-           
               className="btn bg-primary text-white lg:text-xl"
-             
             >
               Add to Favorite
             </button>
-            <button
-              // onClick={handleAddTOFavorite}
-           
-              className="btn bg-primary text-white lg:text-xl"
-             
-            >
-               <Link to={`/update/${_id}`}> Update Movie</Link>
-             
+            <button className="btn bg-primary text-white lg:text-xl">
+              <Link to={`/update/${_id}`}> Update Movie</Link>
             </button>
           </div>
         </div>

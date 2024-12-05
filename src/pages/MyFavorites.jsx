@@ -14,7 +14,7 @@ const MyFavorites = () => {
 
 
     return (
-        <div>
+        <div className="container mx-auto">
           <Heading
           title={'my'}
           subtitle={'kk'}

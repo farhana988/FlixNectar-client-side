@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import Update from "../components/Update";
+import WatchParty from "../pages/WatchParty";
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
         path: 'update/:id',
         element: <Update></Update>,
         loader: ({params})=> fetch(`http://localhost:5000/movie/${params.id}`)
+      },
+      {
+        path: "/watch",
+        element:<WatchParty></WatchParty> ,
+        loader: ()=>fetch('./watch.json')
       },
      
     ],

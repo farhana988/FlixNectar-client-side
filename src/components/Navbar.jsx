@@ -68,7 +68,7 @@ const Navbar = () => {
       }
       {/* extra */}
       <NavLink
-        to="/extra"
+        to="/watch"
         className={({ isActive }) =>
           ` ${
             isActive
@@ -77,7 +77,7 @@ const Navbar = () => {
           }`
         }
       >
-        <i> extra </i>
+        <i>Watch Party</i>
       </NavLink>
     </>
   );
