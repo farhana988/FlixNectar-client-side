@@ -9,6 +9,7 @@ import Details from "../components/Details";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import Update from "../components/Update";
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element:<Register></Register> ,
+      },
+      {
+        path: 'update/:id',
+        element: <Update></Update>,
+        loader: ({params})=> fetch(`http://localhost:5000/movie/${params.id}`)
       },
      
     ],

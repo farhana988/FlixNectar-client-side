@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useContext,  } from "react";
@@ -109,6 +109,15 @@ const Details = () => {
              
             >
               Add to Favorite
+            </button>
+            <button
+              // onClick={handleAddTOFavorite}
+           
+              className="btn bg-primary text-white lg:text-xl"
+             
+            >
+               <Link to={`/update/${_id}`}> Update Movie</Link>
+             
             </button>
           </div>
         </div>
