@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Space Odyssey: Beyond the Stars",
+    "releaseDate": "January 20, 2025",
+    "description": "A thrilling journey through the cosmos as a team of astronauts discovers a new galaxy that holds secrets beyond imagination.",
+    "genre": ["Sci-Fi", "Adventure", "Action"],
+    "posterImage": "https://example.com/images/space-odyssey.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example1",
+    "director": "James Cameron",
+    "cast": ["Chris Hemsworth", "Emma Stone", "Tom Hiddleston"]
+  },
+  {
+    "id": 2,
+    "title": "The Last Kingdom",
+    "releaseDate": "March 15, 2025",
+    "description": "In a post-apocalyptic world, the last remnants of humanity struggle to survive while uncovering a powerful secret hidden for centuries.",
+    "genre": ["Drama", "Sci-Fi", "Thriller"],
+    "posterImage": "https://example.com/images/the-last-kingdom.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example2",
+    "director": "Christopher Nolan",
+    "cast": ["Scarlett Johansson", "Oscar Isaac", "Idris Elba"]
+  },
+  {
+    "id": 3,
+    "title": "Eclipse: The Final Battle",
+    "releaseDate": "May 5, 2025",
+    "description": "A dystopian tale set in the year 2200 where two warring factions fight for control of the last remaining natural resources on Earth.",
+    "genre": ["Action", "Sci-Fi", "Adventure"],
+    "posterImage": "https://example.com/images/eclipse-final-battle.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example3",
+    "director": "Ridley Scott",
+    "cast": ["Henry Cavill", "Natalie Portman", "Michael B. Jordan"]
+  },
+  {
+    "id": 4,
+    "title": "Kingdoms of the Sky",
+    "releaseDate": "June 10, 2025",
+    "description": "A high-fantasy epic where the fates of kingdoms across the sky are at risk due to a prophecy foretold by an ancient civilization.",
+    "genre": ["Fantasy", "Adventure", "Action"],
+    "posterImage": "https://example.com/images/kingdoms-of-the-sky.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example4",
+    "director": "Peter Jackson",
+    "cast": ["Cate Blanchett", "Daniel Craig", "Tom Hardy"]
+  },
+  {
+    "id": 5,
+    "title": "Virtual Reality: The Metaverse",
+    "releaseDate": "September 1, 2025",
+    "description": "In the near future, a tech giant creates a virtual world where people can live out their dreams, but things quickly spiral out of control.",
+    "genre": ["Sci-Fi", "Thriller", "Mystery"],
+    "posterImage": "https://example.com/images/virtual-reality-metaverse.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example5",
+    "director": "Steven Spielberg",
+    "cast": ["Ryan Reynolds", "Jennifer Lawrence", "Morgan Freeman"]
+  },
+  {
+    "id": 6,
+    "title": "The Lost City of Atlantis",
+    "releaseDate": "November 25, 2025",
+    "description": "A group of explorers discovers the long-lost city of Atlantis, but soon realize that they are not alone as dangerous forces emerge from the depths.",
+    "genre": ["Adventure", "Action", "Fantasy"],
+    "posterImage": "https://example.com/images/lost-city-of-atlantis.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example6",
+    "director": "J.J. Abrams",
+    "cast": ["Zendaya", "Chris Pratt", "Dwayne Johnson"]
+  },
+  {
+    "id": 7,
+    "title": "The Witch of the Forest",
+    "releaseDate": "February 18, 2025",
+    "description": "A young woman discovers an ancient spellbook that leads her to a hidden forest, where she must confront an ancient evil and save her village.",
+    "genre": ["Fantasy", "Horror", "Thriller"],
+    "posterImage": "https://example.com/images/witch-of-the-forest.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example7",
+    "director": "Guillermo del Toro",
+    "cast": ["Saoirse Ronan", "Mads Mikkelsen", "Javier Bardem"]
+  },
+  {
+    "id": 8,
+    "title": "Rise of the Titans",
+    "releaseDate": "April 22, 2025",
+    "description": "An ancient war between gods and titans is reignited when an ambitious human scientist unleashes powers beyond his control.",
+    "genre": ["Action", "Fantasy", "Adventure"],
+    "posterImage": "https://example.com/images/rise-of-the-titans.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example8",
+    "director": "Zack Snyder",
+    "cast": ["John Boyega", "Charlize Theron", "Chris Evans"]
+  },
+  {
+    "id": 9,
+    "title": "The Quantum Paradox",
+    "releaseDate": "July 30, 2025",
+    "description": "A team of scientists discovers a way to travel through parallel universes, but each journey has dangerous consequences.",
+    "genre": ["Sci-Fi", "Thriller", "Mystery"],
+    "posterImage": "https://example.com/images/quantum-paradox.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example9",
+    "director": "Christopher Nolan",
+    "cast": ["Emma Watson", "Tom Holland", "Chiwetel Ejiofor"]
+  },
+  {
+    "id": 10,
+    "title": "The Last Ember",
+    "releaseDate": "August 15, 2025",
+    "description": "A global disaster leaves the world in a state of perpetual winter, and a group of survivors races against time to find the last source of heat before humanity is doomed.",
+    "genre": ["Drama", "Action", "Adventure"],
+    "posterImage": "https://example.com/images/the-last-ember.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example10",
+    "director": "Martin Scorsese",
+    "cast": ["Leonardo DiCaprio", "Margot Robbie", "Gary Oldman"]
+  },
+  {
+    "id": 11,
+    "title": "The Kingdom of Ice and Fire",
+    "releaseDate": "October 20, 2025",
+    "description": "A medieval fantasy where two kingdoms, one ruled by ice and the other by fire, are on the brink of war, but a young prince from both kingdoms holds the key to peace.",
+    "genre": ["Fantasy", "Drama", "Action"],
+    "posterImage": "https://example.com/images/kingdom-of-ice-and-fire.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example11",
+    "director": "Ridley Scott",
+    "cast": ["Chris Hemsworth", "Emily Blunt", "Michael Fassbender"]
+  },
+  {
+    "id": 12,
+    "title": "Virtual Dreams",
+    "releaseDate": "December 1, 2025",
+    "description": "A futuristic tale where technology allows people to experience their dreams as a form of entertainment, but when a person gets trapped in their own dream, reality begins to collapse.",
+    "genre": ["Sci-Fi", "Thriller", "Mystery"],
+    "posterImage": "https://example.com/images/virtual-dreams.jpg",
+    "trailerLink": "https://www.youtube.com/watch?v=example12",
+    "director": "Ridley Scott",
+    "cast": ["Keanu Reeves", "Alicia Vikander", "Tessa Thompson"]
+  }
+]

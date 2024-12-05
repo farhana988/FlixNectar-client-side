@@ -5,6 +5,8 @@ import Heading from "../components/Heading";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Rating } from "react-simple-star-rating";
+
+
 import Swal from "sweetalert2";
 
 
@@ -227,11 +229,10 @@ const AddMovie = () => {
               </label>
            
 
-              <div className="rating-container flex justify-between overflow-y-hidden  input input-bordered">
+              <div className="rating-container flex justify-between input input-bordered">
               
                 <Rating
                   onClick={handleRating} 
-                 
                   type="text"
                  
                   placeholder="rating "
