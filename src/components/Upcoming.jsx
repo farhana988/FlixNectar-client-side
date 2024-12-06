@@ -25,7 +25,7 @@ const Upcoming = () => {
           {movies.map((movie) => (
             <div
               key={movie.id}
-              className="p-4 border border-gray-300 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <img
                 src={movie.posterImage}
@@ -33,10 +33,10 @@ const Upcoming = () => {
                 className="w-full rounded-lg mb-4"
               />
               <h3 className="text-2xl font-semibold mb-4">{movie.title}</h3>
-              <p className="text-gray-600 mb-4">
+              <p className=" mb-4">
                 Release Date: {movie.releaseDate}
               </p>
-              <p className="text-gray-600 mb-4">{movie.description}</p>
+              <p className=" mb-4">{movie.description}</p>
               <a
                 href={movie.trailerLink}
                 target="_blank"

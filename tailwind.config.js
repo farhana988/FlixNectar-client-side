@@ -10,6 +10,8 @@ export default {
         clifford: "#da373d",
         primary: "#536493",
         tab: "#ffffff",
+        black:"#000000",
+        white:"#FFFFFF"
       },
         fontFamily: {
           exo: ["Exo 2"]

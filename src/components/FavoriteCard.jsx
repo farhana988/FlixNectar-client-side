@@ -44,7 +44,7 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
 
   return (
     <div>
-      <div className="card card-compact  shadow-xl bg-white">
+      <div className="card  shadow-xl bg-white">
         <figure>
           <img
             className="w-10/12  h-40 rounded-xl mt-8"

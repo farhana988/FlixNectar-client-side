@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div>
-      <div className="card card-compact  shadow-xl bg-white">
+      <div className="card shadow-xl border">
         <figure>
           <img
             className="w-10/12  h-40 rounded-xl mt-8"
@@ -18,15 +18,15 @@ const MovieCard = ({ movie }) => {
           />
         </figure>
         <div className="card-body">
-        <h2 className="card-title text-xl font-semibold text-gray-800">{name}</h2>
-        <p className="text-sm text-gray-500 mt-2">
+        <h2 className="card-title text-xl font-semibold ">{name}</h2>
+        <p className="text-sm mt-2">
             <span className="font-semibold">Genre:</span> {genre}
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm ">
             <span className="font-semibold">Duration:</span> {duration} min
           </p>
           
-          <p className="text-sm text-gray-500">
+          <p className="text-sm ">
             <span className="font-semibold">Release Year:</span> {releaseYear}
           </p>
           

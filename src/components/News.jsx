@@ -74,7 +74,7 @@ const News = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categoryArticles.map(item => (
-            <div key={item.id} className="card w-full bg-base-100 shadow-xl pt-10">
+            <div key={item.id} className="card w-full border shadow-xl pt-10">
               <figure><img src={item.image} alt={item.title} /></figure>
               <div className="card-body">
                 <h3 className="card-title">{item.title}</h3>

@@ -19,7 +19,7 @@ const Banner = () => {
       return () => clearInterval(interval); 
     }, []);
     return (
-        <div className="carousel w-full pt-20 bg-green-50">
+        <div className="carousel w-full  bg-green-50 mt-[72px] ">
         <div
           id="slide1"
           className={`carousel-item relative w-full transition-all duration-700 ${currentSlide === 1 ? 'block' : 'hidden'}`}
