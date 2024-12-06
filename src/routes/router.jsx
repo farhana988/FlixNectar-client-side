@@ -11,6 +11,7 @@ import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import Update from "../components/Update";
 import WatchParty from "../pages/WatchParty";
+import AllUpcoming from "../pages/AllUpcoming";
 
 
 const router = createBrowserRouter([
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
         path: 'update/:id',
         element: <Update></Update>,
         loader: ({params})=> fetch(`https://assi10-api.vercel.app/movie/${params.id}`)
+      },
+
+      {
+        path: "/allUpcoming",
+        element:<AllUpcoming></AllUpcoming> ,
       },
      
      
