@@ -98,7 +98,7 @@ const Update = () => {
       summary,
     };
 
-    fetch(`http://localhost:5000/movie/${_id}`, {
+    fetch(`https://assi10-api.vercel.app/movie/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -122,8 +122,8 @@ const Update = () => {
     try {
       new URL(string);
       return true;
-    } catch (err) {
-      console.log(err);
+    } catch {
+    
       return false;
     }
   };

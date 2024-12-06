@@ -3,34 +3,49 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext);
-  
+  const { isToggled } = useContext(ThemeContext); 
   const links = (
     
     <>
       {/* home */}
+
+
       <NavLink
         to="/"
         className={({ isActive }) =>
-          ` ${
+          `${
             isActive
-              ? "active text-[#536493] text-3xl font-extrabold"
-              : "font-thin text-xl text-gray-400 hover:text-[#536493]"
+              ? `active text-3xl font-extrabold ${
+                  isToggled ? "text-primary":"text-ivory" 
+                }` 
+              : `font-thin text-xl ${isToggled ?
+               'text-gray-400 hover:text-primary':
+               'text-ivory hover:text-primary' 
+              }`
           }`
         }
       >
-        <i> Home</i>
+        <i>Home</i>
       </NavLink>
+
+
       {/* all movies */}
       <NavLink
         to="/allMovies"
         className={({ isActive }) =>
-          ` ${
+          `${
             isActive
-              ? "active text-[#536493] text-3xl font-extrabold"
-              : "font-thin text-xl text-gray-400 hover:text-[#536493]"
+              ? `active text-3xl font-extrabold ${
+                  isToggled ? "text-primary":"text-ivory" 
+                }` 
+              : `font-thin text-xl ${isToggled ?
+               'text-gray-400 hover:text-primary':
+               'text-ivory hover:text-primary' 
+              }`
           }`
         }
       >
@@ -40,10 +55,15 @@ const Navbar = () => {
       <NavLink
         to="/addMovie"
         className={({ isActive }) =>
-          ` ${
+          `${
             isActive
-              ? "active text-[#536493] text-3xl font-extrabold"
-              : "font-thin text-xl text-gray-400 hover:text-[#536493]"
+              ? `active text-3xl font-extrabold ${
+                  isToggled ? "text-primary":"text-ivory" 
+                }` 
+              : `font-thin text-xl ${isToggled ?
+               'text-gray-400 hover:text-primary':
+               'text-ivory hover:text-primary' 
+              }`
           }`
         }
       >
@@ -55,10 +75,15 @@ const Navbar = () => {
           <NavLink
         to={`/myFavorites/${user.email}`}
         className={({ isActive }) =>
-          ` ${
+          `${
             isActive
-              ? "active text-[#536493] text-3xl font-extrabold"
-              : "font-thin text-xl text-gray-400 hover:text-[#536493]"
+              ? `active text-3xl font-extrabold ${
+                  isToggled ? "text-primary":"text-ivory" 
+                }` 
+              : `font-thin text-xl ${isToggled ?
+               'text-gray-400 hover:text-primary':
+               'text-ivory hover:text-primary' 
+              }`
           }`
         }
       >
@@ -66,14 +91,19 @@ const Navbar = () => {
       </NavLink>
         )
       }
-      {/* extra */}
+      {/* watch party */}
       <NavLink
         to="/watch"
         className={({ isActive }) =>
-          ` ${
+          `${
             isActive
-              ? "active text-[#536493] text-3xl font-extrabold"
-              : "font-thin text-xl text-gray-400 hover:text-[#536493]"
+              ? `active text-3xl font-extrabold ${
+                  isToggled ? "text-primary":"text-ivory" 
+                }` 
+              : `font-thin text-xl ${isToggled ?
+               'text-gray-400 hover:text-primary':
+               'text-ivory hover:text-primary' 
+              }`
           }`
         }
       >
@@ -112,9 +142,8 @@ const Navbar = () => {
           <div id="logo" className="flex relative">
             <Link
               to="/"
-              className="font-bold text-primary text-2xl md:text-3xl lg:text-5xl
-           ml-10 z-10
-         "
+              className={`font-bold text-2xl md:text-3xl lg:text-5xl ml-10 z-10 
+                ${isToggled ? "text-primary" : "text-ivory"}`} 
             >
               <> FlixNectar</>
             </Link>

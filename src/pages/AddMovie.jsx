@@ -87,7 +87,7 @@ const AddMovie = () => {
 
     const newMovie = { photo, name, genre, duration, releaseYear, rating, summary }
    
-    fetch('http://localhost:5000/movie', {
+    fetch('https://assi10-api.vercel.app/movie', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -116,8 +116,8 @@ const AddMovie = () => {
     try {
       new URL(string);
       return true;
-    } catch (err) {
-      console.log(err)
+    } catch {
+    
       return false;
     }
   };

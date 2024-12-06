@@ -14,7 +14,7 @@ const AllMovies = () => {
   const [search, setSearch] = useState("");
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/allMovie?searchParams=${search}`)
+    fetch(`https://assi10-api.vercel.app/allMovie?searchParams=${search}`)
     .then((res)=> res.json())
     .then((data)=>{
       setMovies(data)

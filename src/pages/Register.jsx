@@ -14,7 +14,7 @@ const Register = () => {
   const onSubmit = (data) => {
     setError("");
     const { email, password,name, image  } = data;
-    console.log(email,password,name, image )
+   
 
     if (password.length < 6) {
       setFormError("password", {

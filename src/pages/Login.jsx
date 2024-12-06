@@ -15,14 +15,14 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     const { email, password } = data;
-    console.log(email, password);
+  
 
     signIn(email, password)
       .then(() => {
         navigate(location.state?.from || "/");
       })
       .catch((e) => {
-        console.log(e);
+    alert(e)
       });
   };
 
@@ -33,7 +33,7 @@ const Login = () => {
         navigate(location.state?.from || '/');
       })
       .catch((e) => {
-        console.log(e);
+        alert(e)
         });
     
   };

@@ -19,12 +19,12 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/favorites/${_id}`, {
+        fetch(`https://assi10-api.vercel.app/favorites/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data);
+          
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",

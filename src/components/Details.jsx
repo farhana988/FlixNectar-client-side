@@ -24,7 +24,7 @@ const Details = () => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/favorites/${email}`)
+    fetch(`https://assi10-api.vercel.app/favorites/${email}`)
       .then((res) => res.json())
       .then((favorites) => {
         // Check if the movie is in the favorites list
@@ -37,7 +37,7 @@ const Details = () => {
   }, [_id, email]);
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/movie/${_id}`, {
+    fetch(`https://assi10-api.vercel.app/movie/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const Details = () => {
 
     setIsFavorite(true);
 
-    fetch("http://localhost:5000/favorites", {
+    fetch("https://assi10-api.vercel.app/favorites", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

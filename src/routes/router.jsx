@@ -23,12 +23,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=> fetch('http://localhost:5000/movie')
+        loader: ()=> fetch('https://assi10-api.vercel.app/movie')
       },
       {
         path: "/allMovies",
         element: <AllMovies></AllMovies>,
-        loader: ()=> fetch('http://localhost:5000/allMovie')
+        loader: ()=> fetch('https://assi10-api.vercel.app/allMovie')
       },
       {
         path: "/addMovie",
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/myFavorites/:email",
         element: <PrivateRoute><MyFavorites></MyFavorites></PrivateRoute> ,
-        loader: ({params})=> fetch(`http://localhost:5000/favorites/${params.email}`)
+        loader: ({params})=> fetch(`https://assi10-api.vercel.app/favorites/${params.email}`)
       },
       {
         path: "/watch",
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
        {
         path: "/details/:id",
         element:<PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/movie/${params.id}`)
+        loader: ({params})=> fetch(`https://assi10-api.vercel.app/movie/${params.id}`)
       },
       {
         path: "/login",
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: 'update/:id',
         element: <Update></Update>,
-        loader: ({params})=> fetch(`http://localhost:5000/movie/${params.id}`)
+        loader: ({params})=> fetch(`https://assi10-api.vercel.app/movie/${params.id}`)
       },
      
      
