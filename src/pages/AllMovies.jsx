@@ -35,7 +35,7 @@ const AllMovies = () => {
         ></Heading>
 
         {/* search */}
-        <div className="w-[500px] mx-auto mb-10 relative">
+        <div className="w-96 lg:w-[500px] mx-auto mb-10 relative">
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
@@ -48,8 +48,8 @@ const AllMovies = () => {
         </div>
 
 
-      
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+      {/* main card */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5 lg:px-0">
           {movies.map((movie) => (
             <MovieCard movie={movie} key={movie._id}></MovieCard>
           ))}

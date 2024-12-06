@@ -14,6 +14,8 @@ export default {
         white:"#F5F5F5",
         ivory: "#F5F5F5",
         darkSlate: "#2C3E50",
+        card: "#38363694",
+        
       },
         fontFamily: {
           exo: ["Exo 2"]
