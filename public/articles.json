@@ -4,21 +4,21 @@
       {
         "id": 1,
         "title": "Breaking News: Upcoming Movie Release!",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/1QYJ0sv/Breaking-News-Upcoming-Movie-Release.jpg",
         "description": "Get the latest details on the upcoming blockbuster that's making waves in Hollywood...",
         "link": "/news/1"
       },
       {
         "id": 2,
         "title": "Director's New Film Announced",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/RTsf4T0/Directors-New-Film-Announced.png",
         "description": "Get all the details about the latest film from acclaimed director John Doe...",
         "link": "/news/2"
       },
       {
         "id": 3,
         "title": "Casting News: New Star for Sequel",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/rkGTmRR/Casting-News-New-Star-for-Sequel.jpg",
         "description": "Discover the new casting announcement for the highly anticipated movie sequel...",
         "link": "/news/3"
       }
@@ -27,21 +27,21 @@
       {
         "id": 1,
         "title": "Exclusive Interview with Jane Doe",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/P98177m/Exclusive-Interview-with-Jane-Doe.jpg",
         "description": "Actress Jane Doe talks about her role in the upcoming thriller...",
         "link": "/interviews/1"
       },
       {
         "id": 2,
         "title": "Director Talks About Vision for New Movie",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/Bt1rRzY/Director-Talks-About-Vision-for-New-Movie.jpg",
         "description": "Director John Smith discusses his creative process behind the highly anticipated film...",
         "link": "/interviews/2"
       },
       {
         "id": 3,
         "title": "Behind the Scenes with Tom Cruise",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/BjXbbNn/Behind-the-Scenes-with-Tom-Cruise.jpg",
         "description": "Exclusive behind-the-scenes footage and interview with the star of the action hit...",
         "link": "/interviews/3"
       }
@@ -50,21 +50,21 @@
       {
         "id": 1,
         "title": "Movie Review: The Dark Knight Returns",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/f9pbTXy/Movie-Review-The-Dark-Knight-Returns.jpg",
         "description": "An in-depth review of the long-awaited return of Batman...",
         "link": "/reviews/1"
       },
       {
         "id": 2,
         "title": "Review: A Cinematic Masterpiece",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/bR90TJQ/A-Cinematic-Masterpiece.jpg",
         "description": "This review dives deep into the artistry of the latest critically acclaimed movie...",
         "link": "/reviews/2"
       },
       {
         "id": 3,
         "title": "Movie Review: Sci-Fi Thriller",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/SVVrMQz/Movie-Review-Sci-Fi-Thriller.jpg",
         "description": "Our detailed review of the thrilling new sci-fi film...",
         "link": "/reviews/3"
       }
@@ -73,21 +73,21 @@
       {
         "id": 1,
         "title": "Making of the Blockbuster Film",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/wJGj0Xf/Making-of-the-Blockbuster-Film.png",
         "description": "Get an exclusive look at how the new action movie came to life...",
         "link": "/behind-the-scenes/1"
       },
       {
         "id": 2,
         "title": "How They Built the Movie Sets",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/yBKBxcH/How-They-Built-the-Movie-Sets.jpg",
         "description": "Discover the incredible craftsmanship behind the stunning movie sets...",
         "link": "/behind-the-scenes/2"
       },
       {
         "id": 3,
         "title": "From Script to Screen: The Journey",
-        "image": "https://via.placeholder.com/300x200",
+        "image": "https://i.ibb.co/W3jdTvJ/From-Script-to-Screen-The-Journey.jpg",
         "description": "An inside look at the creative process from the writer's desk to the big screen...",
         "link": "/behind-the-scenes/3"
       }

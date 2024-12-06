@@ -1,25 +1,27 @@
-import { useState, useEffect } from 'react';
-import Heading from './Heading';
-import { FaLongArrowAltRight } from 'react-icons/fa';
+import { useState, useEffect, useContext } from "react";
+import Heading from "./Heading";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 const News = () => {
+  const { isToggled } = useContext(ThemeContext);
   const [articles, setArticles] = useState({
     movieNews: [],
     interviews: [],
     filmReviews: [],
-    behindTheScenes: []
+    behindTheScenes: [],
   });
 
-  const [selectedCategory, setSelectedCategory] = useState('movieNews'); 
+  const [selectedCategory, setSelectedCategory] = useState("movieNews");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('./articles.json');
+        const response = await fetch("./articles.json");
         const data = await response.json();
-        setArticles(data); 
+        setArticles(data);
       } catch (error) {
-        console.error('Error fetching the data', error);
+        console.error("Error fetching the data", error);
       }
     };
 
@@ -32,61 +34,135 @@ const News = () => {
     <div className="container mx-auto ">
       {/* Title  */}
       <Heading
-      title={'Movie News and Articles'}
-      subtitle={'Get the latest updates, exclusive interviews, and behind-the-scenes insights from the world of cinema. Stay in the know!'}
+        title={"Movie News and Articles"}
+        subtitle={
+          "Get the latest updates, exclusive interviews, and behind-the-scenes insights from the world of cinema. Stay in the know!"
+        }
       ></Heading>
-     
 
-      {/* Category Buttons */}
-      <div className="mb-6 text-center">
-        <button
-          className={`btn ${selectedCategory === 'movieNews' ? 'btn-primary' : ' '} mx-2`}
-          onClick={() => setSelectedCategory('movieNews')}
-        >
-          Movie News
-        </button>
-        <button
-          className={`btn ${selectedCategory === 'interviews' ? 'btn-primary' : ' '} mx-2`}
-          onClick={() => setSelectedCategory('interviews')}
-        >
-          Interviews
-        </button>
-        <button
-          className={`btn ${selectedCategory === 'filmReviews' ? 'btn-primary' : ' '} mx-2`}
-          onClick={() => setSelectedCategory('filmReviews')}
-        >
-          Film Reviews
-        </button>
-        <button
-          className={`btn ${selectedCategory === 'behindTheScenes' ? 'btn-primary' : ' '} mx-2`}
-          onClick={() => setSelectedCategory('behindTheScenes')}
-        >
-          Behind the Scenes
-        </button>
-      </div>
+      <section
+        className="flex flex-col-reverse lg:flex-row justify-between gap-10 lg:gap-20 
+      px-5 lg:px-0  "
+      >
+        {/* card */}
+        <div className="">
+          {/* card title */}
+          <h2
+            className={`text-2xl lg:text-4xl font-bold active mb-8 ml-3 ${
+              isToggled ? "text-primary" : "text-ivory"
+            }`}
+          >
+            {selectedCategory === "movieNews" && "Movie News"}
+            {selectedCategory === "interviews" && "Interviews"}
+            {selectedCategory === "filmReviews" && "Film Reviews"}
+            {selectedCategory === "behindTheScenes" && "Behind the Scenes"}
+          </h2>
+          {/* card section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 ">
+            {categoryArticles.map((item) => (
+              // card design
+              <div
+                key={item.id}
+                className={`card card-compact h-[400px] shadow-xl shadow-primary ${
+                  isToggled
+                    ? "bg-[#ffffff] text-darkSlate"
+                    : "bg-card text-ivory"
+                }`}
+              >
+                <figure>
+                  <img
+                    className="  w-10/12 h-40 rounded-xl mt-7"
+                    src={item.image}
+                    alt={item.title}
+                  />
+                </figure>
+                <div className="px-8 flex flex-col flex-grow gap-1">
+                  <h2
+                    className="text-lg  lg:text-2xl font-bold mt-3
+          
+          "
+                  >
+                   {item.title}
+                  </h2>
 
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-          {selectedCategory === 'movieNews' && 'Movie News'}
-          {selectedCategory === 'interviews' && 'Interviews'}
-          {selectedCategory === 'filmReviews' && 'Film Reviews'}
-          {selectedCategory === 'behindTheScenes' && 'Behind the Scenes'}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categoryArticles.map(item => (
-            <div key={item.id} className="card w-full border shadow-xl pt-10">
-              <figure><img src={item.image} alt={item.title} /></figure>
-              <div className="card-body">
-                <h3 className="card-title">{item.title}</h3>
-                <p>{item.description}</p>
-                <div className="card-actions justify-end">
-                <button className="shadow-2xl shadow-primary border-2 rounded-2xl px-4 flex items-center
-            gap-3 text-xl font-bold">
-              Read More<FaLongArrowAltRight /></button>
+                  <p className="font-semibold opacity-50 text-sm lg:font-bold lg:text-lg  flex-grow">
+                  {item.description} 
+                  </p>
+
+                  <div className="card-actions justify-end pb-6">
+                    <button
+                      className="shadow-2xl shadow-primary border-2 rounded-2xl px-4 flex items-center
+            gap-3 text-xl font-bold"
+                    >
+                      Read More
+                      <FaLongArrowAltRight />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+        {/* ---------------------------------------------------------------------------------- */}
+
+        {/* Category Buttons */}
+        <div className="text-center flex flex-col gap-6 lg:gap-10 lg:mt-20">
+          <section>
+            {/* movie news */}
+            <button
+              className={`btn btn-wide ${
+                selectedCategory === "movieNews"
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  : isToggled
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
+                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+              } mx-2`}
+              onClick={() => setSelectedCategory("movieNews")}
+            >
+              Movie News
+            </button>
+            {/* interview */}
+            <button
+              className={`btn btn-wide mt-6 md:mt-0 lg:mt-10 ${
+                selectedCategory === "interviews"
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  : isToggled
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
+                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+              } mx-2`}
+              onClick={() => setSelectedCategory("interviews")}
+            >
+              Interviews
+            </button>
+          </section>
+          <section>
+            {/* film review */}
+            <button
+               className={`btn btn-wide ${
+                selectedCategory === "filmReviews"
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  : isToggled
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
+                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+              } mx-2`}
+              onClick={() => setSelectedCategory("filmReviews")}
+            >
+              Film Reviews
+            </button>
+            {/* behind the scene */}
+            <button
+               className={`btn btn-wide mt-6 md:mt-0 lg:mt-10 ${
+                selectedCategory === "behindTheScenes"
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  : isToggled
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
+                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+              } mx-2`}
+              onClick={() => setSelectedCategory("behindTheScenes")}
+            >
+              Behind the Scenes
+            </button>
+          </section>
         </div>
       </section>
     </div>

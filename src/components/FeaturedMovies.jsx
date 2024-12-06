@@ -23,7 +23,8 @@ const FeaturedMovies = () => {
         <div className="flex justify-end mt-4  ">
           <button
             className=" mr-7 lg:mr-0
-             btn bg-primary ring-2 ring-offset-4 ring-primary text-white lg:text-xl mt-5"
+             btn bg-primary ring-2 ring-offset-4 ring-primary text-white
+              lg:text-xl mt-5"
           >
             <Link to="/allMovies">See all movies</Link>
           </button>
