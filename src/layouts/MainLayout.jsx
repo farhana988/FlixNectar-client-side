@@ -7,6 +7,7 @@ import Theme from "../components/Theme";
 import Snowfall from "react-snowfall";
 
 
+
 const MainLayout = () => {
   return (
     <div className="h-full relative">
@@ -15,14 +16,13 @@ const MainLayout = () => {
       <Theme></Theme>
       <Footer></Footer>
 
-
-
       {/* Snowfall Component */}
       <Snowfall
         snowflakeCount={200}
         className="absolute top-0 left-0 w-full h-full"
         style={{ pointerEvents: "none" }}
       />
+
 
     </div>
   );

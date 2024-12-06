@@ -12,8 +12,6 @@ const Navbar = () => {
     
     <>
       {/* home */}
-
-
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -31,7 +29,6 @@ const Navbar = () => {
       >
         <i>Home</i>
       </NavLink>
-
 
       {/* all movies */}
       <NavLink
@@ -51,6 +48,7 @@ const Navbar = () => {
       >
         <i>All Movies</i>
       </NavLink>
+
       {/* add movies */}
       <NavLink
         to="/addMovie"
@@ -69,6 +67,7 @@ const Navbar = () => {
       >
         <i>Add Movie </i>
       </NavLink>
+
       {/* my favorites */}
       {
         user && (
@@ -91,6 +90,7 @@ const Navbar = () => {
       </NavLink>
         )
       }
+      
       {/* watch party */}
       <NavLink
         to="/watch"
