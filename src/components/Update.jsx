@@ -2,12 +2,14 @@
 
 import { useLoaderData } from "react-router-dom";
 import Heading from "./Heading";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Rating } from "react-simple-star-rating";
 import Swal from "sweetalert2";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 const Update = () => {
+  const { isToggled } = useContext(ThemeContext);
   const movie = useLoaderData();
   const {
     _id,
@@ -123,31 +125,38 @@ const Update = () => {
       new URL(string);
       return true;
     } catch {
-    
       return false;
     }
   };
   return (
-    <div className="lg:w-3/4 mx-auto">
+    <div className="lg:w-3/4 mx-auto py-10">
       <Heading
         title={"Update movie"}
-        subtitle={"Wovie next big hit!"}
+        subtitle={"Update the details of an existing movie. Modify any fields and save your changes to keep your collection accurate and up-to-date!"}
       ></Heading>
 
-      <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+      <div
+        className={`card shadow-xl shadow-primary mx-6 ${
+          isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
+        }`}
+      >
         <form onSubmit={handleUpdate} className="card-body">
           <div className="flex flex-col lg:flex-row gap-5">
             {/* movie poster*/}
             <div className="form-control flex-1">
               <label className="label">
-                <span className="label-text">Movie Poster</span>
+                <span  className={`label-text text-lg font-semibold ${isToggled ?
+                  "text-darkSlate":"text-ivory"}`}
+                  >Movie Poster</span>
               </label>
               <input
                 type="text"
                 name="photo"
                 defaultValue={photo}
                 placeholder="Movie Poster"
-                className="input input-bordered"
+                className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                 required
               />
               {photoError && (
@@ -157,14 +166,17 @@ const Update = () => {
             {/* movie title */}
             <div className="form-control flex-1">
               <label className="label">
-                <span className="label-text">Movie Title</span>
+                <span  className={`label-text text-lg font-semibold ${isToggled ?
+                  "text-darkSlate":"text-ivory"}`}>Movie Title</span>
               </label>
               <input
                 type="text"
                 name="name"
                 defaultValue={name}
                 placeholder="Movie Title"
-                className="input input-bordered"
+                className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                 required
               />
               {nameError && <p className="text-red-500 text-sm">{nameError}</p>}
@@ -175,19 +187,23 @@ const Update = () => {
             {/* genre */}
             <div className="form-control flex-1">
               <label className="label">
-                <span className="label-text">Genre</span>
+                <span  className={`label-text text-lg font-semibold ${isToggled ?
+                  "text-darkSlate":"text-ivory"}`}>Genre</span>
               </label>
 
               <select
                 name="genre"
                 defaultValue={genre}
-                className="select select-bordered"
+           
+                className={`select select-bordered ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                 required
               >
-                <option value="" disabled selected className="text-gray-400">
+                <option value="" disabled selected>
                   Select Genre
                 </option>
-                <option value="action">Action</option>
+                <option  value="action">Action</option>
                 <option value="comedy">Comedy</option>
                 <option value="drama">Drama</option>
                 <option value="horror">Horror</option>
@@ -204,14 +220,17 @@ const Update = () => {
             {/* duration */}
             <div className="form-control flex-1">
               <label className="label">
-                <span className="label-text">Duration</span>
+                <span  className={`label-text text-lg font-semibold ${isToggled ?
+                  "text-darkSlate":"text-ivory"}`}>Duration</span>
               </label>
               <input
                 type="text"
                 name="duration"
                 defaultValue={duration}
                 placeholder="duration"
-                className="input input-bordered"
+                className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                 required
               />
               {durationError && (
@@ -224,7 +243,8 @@ const Update = () => {
             {/* release year */}
             <div className="form-control flex-1">
               <label className="label">
-                <span className="label-text">Release Year</span>
+                <span  className={`label-text text-lg font-semibold ${isToggled ?
+                  "text-darkSlate":"text-ivory"}`}>Release Year</span>
               </label>
               <DatePicker
                 name="releaseYear"
@@ -234,7 +254,10 @@ const Update = () => {
                 showYearPicker
                 dateFormat="yyyy"
                 placeholderText="Select a year"
-                className="input input-bordered w-full select"
+               
+                className={`input input-bordered  w-full select  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                 required
               />
               {releaseYearError && (
@@ -244,10 +267,15 @@ const Update = () => {
             {/* rating */}
             <div className="form-control flex-1 ">
               <label className="label">
-                <span className="label-text">Rating </span>
+                <span  className={`label-text text-lg font-semibold ${isToggled ?
+                  "text-darkSlate":"text-ivory"}`}>Rating </span>
               </label>
 
-              <div className="rating-container flex justify-between input input-bordered">
+              <div
+              className={`rating-container flex justify-between input input-bordered  ${isToggled?
+                "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+              }`}
+              >
                 <Rating
                   onClick={handleRating}
                   ratingValue={rating}
@@ -268,13 +296,17 @@ const Update = () => {
           {/* summary */}
           <div className="form-control h-40">
             <label className="label">
-              <span className="label-text ">Summary</span>
+              <span  className={`label-text text-lg font-semibold ${isToggled ?
+                  "text-darkSlate":"text-ivory"}`}>Summary</span>
             </label>
             <textarea
               name="summary"
               defaultValue={summary}
               placeholder="movie summary"
-              className="textarea textarea-bordered h-full p-4 text-base font-medium text-gray-700 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className={`textarea textarea-bordered h-full p-4 text-base font-medium  ${isToggled?
+                "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+              }`}  
+           
               required
             />
             {summaryError && (
@@ -283,7 +315,7 @@ const Update = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Update Movie</button>
+            <button className="btn bg-primary  text-ivory lg:text-xl">Update Movie</button>
           </div>
         </form>
       </div>
