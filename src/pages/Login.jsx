@@ -4,8 +4,10 @@ import googleLogo from "../assets/google-logo.png";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
+import { ThemeContext } from "../provider/ThemeProvider";
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const { isToggled } = useContext(ThemeContext);
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -15,27 +17,24 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     const { email, password } = data;
-  
 
     signIn(email, password)
       .then(() => {
         navigate(location.state?.from || "/");
       })
       .catch((e) => {
-    alert(e)
+        alert(e);
       });
   };
 
   const handleGoogleLogIn = () => {
     signInWithGoogle()
       .then(() => {
-     
-        navigate(location.state?.from || '/');
+        navigate(location.state?.from || "/");
       })
       .catch((e) => {
-        alert(e)
-        });
-    
+        alert(e);
+      });
   };
   return (
     <div>
@@ -43,12 +42,18 @@ const Login = () => {
         <div className="hero py-32">
           <div className="hero-content flex-col">
             <h2
-              className="text-3xl md:text-5xl lg:text-7xl font-bold mb-14 text-primary 
-       "
+              
+       className={`text-3xl md:text-5xl lg:text-7xl font-bold mb-14 
+        ${isToggled ? "text-primary" : "text-ivory"} active`} 
             >
               Login Form
             </h2>
-            <div className="card bg-base-100 w-full max-w-5xl shrink-0 shadow-2xl shadow-primary">
+
+            <div
+              className={`card w-full max-w-5xl shrink-0 shadow-2xl shadow-primary ${
+                isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
+              }`}
+            >
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="card-body w-96 lg:w-[500px]"
@@ -56,15 +61,20 @@ const Login = () => {
                 {/* Email input field */}
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text font-bold text-2xl text-gray-600">
+                    <span 
+                    className={`font-bold text-2xl ${isToggled ?
+                      "text-darkSlate":"text-ivory"}`}
+                    >
                       Email
                     </span>
                   </label>
                   <input
                     type="email"
-                    {...register("email", { required: "Email is required" })} 
+                    {...register("email", { required: "Email is required" })}
                     placeholder="email"
-                    className="input input-bordered"
+                   className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                   />
                   {/* Error message for email */}
                   {errors.email && (
@@ -77,7 +87,9 @@ const Login = () => {
                 {/* Password input field */}
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text font-bold text-2xl text-gray-600">
+                    <span 
+                    className={`label-text font-bold text-2xl ${isToggled ?
+                      "text-darkSlate":"text-ivory"}`}>
                       Password
                     </span>
                   </label>
@@ -85,9 +97,11 @@ const Login = () => {
                     type="password"
                     {...register("password", {
                       required: "Password is required",
-                    })} 
+                    })}
                     placeholder="password"
-                    className="input input-bordered"
+                   className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                   />
                   {/* Error message for password */}
                   {errors.password && (
@@ -98,7 +112,9 @@ const Login = () => {
                   <label className="label">
                     <a
                       href="#"
-                      className="label-text-alt link link-hover text-xl text-gray-500"
+                 
+                      className={`label-text-alt link link-hover text-xl opacity-50 ${isToggled ?
+                        "text-darkSlate":"text-ivory"}`}
                     >
                       Forgot password?
                     </a>
@@ -127,9 +143,10 @@ const Login = () => {
               <div className="divider text-primary font-bold text-xl">OR</div>
               <div className="space-y-4">
                 {/* Google login button */}
-                <button 
-                 onClick={handleGoogleLogIn}
-                className="pb-8 w-full flex items-center justify-center gap-2">
+                <button
+                  onClick={handleGoogleLogIn}
+                  className="pb-8 w-full flex items-center justify-center gap-2"
+                >
                   <img src={googleLogo} alt="Google" className="w-6 h-6" />
                   Continue with Google
                 </button>

@@ -7,9 +7,8 @@ import { ThemeContext } from "../provider/ThemeProvider";
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext);
-  const { isToggled } = useContext(ThemeContext); 
+  const { isToggled } = useContext(ThemeContext);
   const links = (
-    
     <>
       {/* home */}
       <NavLink
@@ -18,12 +17,13 @@ const Navbar = () => {
           `${
             isActive
               ? `active text-3xl font-extrabold ${
-                  isToggled ? "text-primary":"text-ivory" 
-                }` 
-              : `font-thin text-xl ${isToggled ?
-               'text-gray-400 hover:text-primary':
-               'text-ivory hover:text-primary' 
-              }`
+                  isToggled ? "text-primary" : "text-ivory"
+                }`
+              : `font-thin text-xl ${
+                  isToggled
+                    ? "text-gray-400 hover:text-primary"
+                    : "text-ivory hover:text-primary"
+                }`
           }`
         }
       >
@@ -37,12 +37,13 @@ const Navbar = () => {
           `${
             isActive
               ? `active text-3xl font-extrabold ${
-                  isToggled ? "text-primary":"text-ivory" 
-                }` 
-              : `font-thin text-xl ${isToggled ?
-               'text-gray-400 hover:text-primary':
-               'text-ivory hover:text-primary' 
-              }`
+                  isToggled ? "text-primary" : "text-ivory"
+                }`
+              : `font-thin text-xl ${
+                  isToggled
+                    ? "text-gray-400 hover:text-primary"
+                    : "text-ivory hover:text-primary"
+                }`
           }`
         }
       >
@@ -56,12 +57,13 @@ const Navbar = () => {
           `${
             isActive
               ? `active text-3xl font-extrabold ${
-                  isToggled ? "text-primary":"text-ivory" 
-                }` 
-              : `font-thin text-xl ${isToggled ?
-               'text-gray-400 hover:text-primary':
-               'text-ivory hover:text-primary' 
-              }`
+                  isToggled ? "text-primary" : "text-ivory"
+                }`
+              : `font-thin text-xl ${
+                  isToggled
+                    ? "text-gray-400 hover:text-primary"
+                    : "text-ivory hover:text-primary"
+                }`
           }`
         }
       >
@@ -69,28 +71,27 @@ const Navbar = () => {
       </NavLink>
 
       {/* my favorites */}
-      {
-        user && (
-          <NavLink
-        to={`/myFavorites/${user.email}`}
-        className={({ isActive }) =>
-          `${
-            isActive
-              ? `active text-3xl font-extrabold ${
-                  isToggled ? "text-primary":"text-ivory" 
-                }` 
-              : `font-thin text-xl ${isToggled ?
-               'text-gray-400 hover:text-primary':
-               'text-ivory hover:text-primary' 
-              }`
-          }`
-        }
-      >
-        <i> My Favorites</i>
-      </NavLink>
-        )
-      }
-      
+      {user && (
+        <NavLink
+          to={`/myFavorites/${user.email}`}
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? `active text-3xl font-extrabold ${
+                    isToggled ? "text-primary" : "text-ivory"
+                  }`
+                : `font-thin text-xl ${
+                    isToggled
+                      ? "text-gray-400 hover:text-primary"
+                      : "text-ivory hover:text-primary"
+                  }`
+            }`
+          }
+        >
+          <i> My Favorites</i>
+        </NavLink>
+      )}
+
       {/* watch party */}
       <NavLink
         to="/watch"
@@ -98,12 +99,13 @@ const Navbar = () => {
           `${
             isActive
               ? `active text-3xl font-extrabold ${
-                  isToggled ? "text-primary":"text-ivory" 
-                }` 
-              : `font-thin text-xl ${isToggled ?
-               'text-gray-400 hover:text-primary':
-               'text-ivory hover:text-primary' 
-              }`
+                  isToggled ? "text-primary" : "text-ivory"
+                }`
+              : `font-thin text-xl ${
+                  isToggled
+                    ? "text-gray-400 hover:text-primary"
+                    : "text-ivory hover:text-primary"
+                }`
           }`
         }
       >
@@ -134,7 +136,9 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className={`menu menu-sm dropdown-content ${isToggled} ? 
+                "bg-white text-darkSlate" : "bg-base-100 text-ivory"
+                   rounded-box z-[1] mt-3 w-52 p-2 shadow`}
             >
               {links}
             </ul>
@@ -143,7 +147,7 @@ const Navbar = () => {
             <Link
               to="/"
               className={`font-bold text-2xl md:text-3xl lg:text-5xl lg:ml-10 z-10 
-                ${isToggled ? "text-primary" : "text-ivory"}`} 
+                ${isToggled ? "text-primary" : "text-ivory"}`}
             >
               <> FlixNectar</>
             </Link>

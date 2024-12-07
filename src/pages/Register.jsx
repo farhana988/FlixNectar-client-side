@@ -3,9 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"; 
 import googleLogo from "../assets/google-logo.png";
 import { AuthContext } from "../provider/AuthProvider";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 const Register = () => {
   const {  setUser,  manageProfile, registerUser } = useContext(AuthContext);
+  const { isToggled } = useContext(ThemeContext);
+
   const navigate = useNavigate();
   const [error, setError] = useState("");
   
@@ -68,21 +71,29 @@ const Register = () => {
     <div>
       <div className="hero py-32">
         <div className="hero-content flex-col">
-          <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-14 text-primary active animate__animated animate__heartBeat animate__infinite animate__slower animate__delay-5s">
+          <h2  className={`text-3xl md:text-5xl lg:text-7xl font-bold mb-14 
+        ${isToggled ? "text-primary" : "text-ivory"} active`} 
+            >
             Registration Form
           </h2>
-          <div className="card bg-base-100 w-full max-w-5xl shrink-0 shadow-2xl">
+          <div className={`card w-full max-w-5xl shrink-0 shadow-2xl shadow-primary ${
+                isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
+              }`}
+            >
             <form onSubmit={handleSubmit(onSubmit)} 
             className="card-body ">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-bold text-2xl text-gray-600">Name</span>
+                  <span className={`label-text font-bold text-2xl ${isToggled ?
+                      "text-darkSlate":"text-ivory"}`}>Name</span>
                 </label>
                 <input
                   type="text"
                   name="name"
                   placeholder="Name"
-                  className="input input-bordered"
+                  className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                   {...register("name", { required: "Name is required" })}
                 />
                 {errors.name && <p className="text-red-900">{errors.name.message}</p>}
@@ -90,13 +101,16 @@ const Register = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-gray-600 font-bold text-2xl">Email</span>
+                  <span className={`label-text font-bold text-2xl ${isToggled ?
+                      "text-darkSlate":"text-ivory"}`}>Email</span>
                 </label>
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="input input-bordered"
+                  className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                   {...register("email", { required: "Email is required", pattern: {
                     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                     message: "Invalid email address"
@@ -107,13 +121,16 @@ const Register = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-gray-600 font-bold text-2xl">Photo URL</span>
+                  <span className={`label-text font-bold text-2xl ${isToggled ?
+                      "text-darkSlate":"text-ivory"}`}>Photo URL</span>
                 </label>
                 <input
                   type="text"
                   name="image"
                   placeholder="Photo URL"
-                  className="input input-bordered"
+                  className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                   {...register("image", { required: "Photo URL is required" })}
                 />
                 {errors.image && <p className="text-red-900">{errors.image.message}</p>}
@@ -121,13 +138,16 @@ const Register = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-gray-600 font-bold text-2xl">Password</span>
+                  <span className={`label-text font-bold text-2xl ${isToggled ?
+                      "text-darkSlate":"text-ivory"}`}>Password</span>
                 </label>
                 <input
                   type="password"
                   name="password"
                   placeholder="Password"
-                  className="input input-bordered"
+                  className={`input input-bordered  ${isToggled?
+                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                }`}
                   {...register("password", { required: "Password is required" })}
                 />
                 {errors.password && <p className="text-red-900">{errors.password.message}</p>}

@@ -4,11 +4,13 @@ import { useLoaderData } from "react-router-dom";
 
 import Heading from "../components/Heading";
 import MovieCard from "../components/movieCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 const AllMovies = () => {
   const data = useLoaderData();
+  const { isToggled } = useContext(ThemeContext);
 
   const [movies,setMovies] = useState(data)
   const [search, setSearch] = useState("");
@@ -41,10 +43,13 @@ const AllMovies = () => {
             type="text"
             name="search"
             placeholder="search by title"
-            className="input input-bordered input-primary w-full text-black active pl-14 rounded-xl"
+            // className="input input-bordered input-primary w-full text-black active pl-14 rounded-xl"
+            className={`input input-bordered w-full active pl-14 rounded-xl ${isToggled?
+              "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+            }`}
             required
           />
-          <FaSearch className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500" /> 
+          <FaSearch className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400" /> 
         </div>
 
 
