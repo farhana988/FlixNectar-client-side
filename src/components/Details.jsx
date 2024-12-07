@@ -5,9 +5,11 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
 import Heading from "./Heading";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 const Details = () => {
   const { user } = useContext(AuthContext);
+  const { isToggled } = useContext(ThemeContext);
   const movie = useLoaderData();
 
   const { _id, photo, name, genre, duration, releaseYear, rating, summary } =
@@ -104,43 +106,72 @@ const Details = () => {
   };
 
   return (
-    <div className="container mx-auto pt-10">
+    <div className="container mx-auto py-10">
       <Heading
-      title={'Movie Details'}
-      subtitle={'Explore everything you need to know about this film—genre, duration, released year, reviews, and more. Dive deeper into the story, discover behind-the-scenes insights, and get all the essential info to enhance your movie experience!'}
+        title={"Movie Details"}
+        subtitle={
+          "Explore everything you need to know about this film—genre, duration, released year, reviews, and more. Dive deeper into the story, discover behind-the-scenes insights, and get all the essential info to enhance your movie experience!"
+        }
       ></Heading>
-      <div className="card card-compact  shadow-xl bg-white p-6">
-        <div className="flex flex-row gap-10">
+
+      <div
+        className={`card card-compact shadow-xl shadow-primary mx-6 ${
+          isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
+        }`}
+      >
+        <div className="flex flex-col lg:flex-row lg:gap-10">
           {/* image */}
-          <div>
-            <figure>
-              <img
-                className="w-[600px] h-80 object-cover rounded-lg"
-                src={photo}
-                alt={name}
-              />
-            </figure>
-          </div>
+          <figure>
+            <img
+              className=" w-[800px] h-96 rounded-xl m-7"
+              src={photo}
+              alt={name}
+            />
+          </figure>
+
           {/* details */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800">{name}</h2>
-            <p className="text-sm text-gray-500 mt-2">
-              <span className="font-semibold">Genre:</span> {genre}
-            </p>
-            <p className="text-sm text-gray-500">
-              <span className="font-semibold">Duration:</span> {duration} min
-            </p>
+          <div className="space-y-2 pl-10 md:px-20 lg:px-0 lg:mt-20">
+            <section className="grid  grid-cols-2 lg:grid-cols-1  lg:gap-2  items-center">
+              {/* title */}
+              <h2 className="text-lg  lg:text-2xl font-bold">
+                Title:
+                <span className="text-lg font-semibold"> {name}</span>
+              </h2>
+              {/* genre */}
+              <p className="text-base ">
+                <span className=" font-semibold text-sm lg:font-bold lg:text-lg">
+                  Genre:
+                </span>{" "}
+                {genre}
+              </p>
+            </section>
 
-            <p className="text-sm text-gray-500">
-              <span className="font-semibold">Release Year:</span> {releaseYear}
-            </p>
+            <section className="grid  grid-cols-2 lg:grid-cols-1 lg:gap-2 items-center">
+              {/* duration */}
+              <p className="text-base ">
+                <span className="font-semibold text-sm lg:font-bold lg:text-lg">
+                  Duration:
+                </span>{" "}
+                {duration} min
+              </p>
 
-            <div className="flex items-center mt-2">
+              {/* release year */}
+              <p className="text-base ">
+                <span className="font-semibold text-sm lg:font-bold lg:text-lg">
+                  Release Year:
+                </span>{" "}
+                {releaseYear}
+              </p>
+            </section>
+
+            {/* rating */}
+            <div className="flex items-center font-semibold text-sm lg:font-bold lg:text-lg">
+              <span className="mr-2">Rating:</span>
               {[...Array(validRating)].map((_, index) => (
                 <svg
                   key={index}
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5 text-yellow-400"
+                  className=" w-5 h-5 lg:w-7 lg:h-7 text-yellow-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   aria-hidden="true"
@@ -155,34 +186,41 @@ const Details = () => {
             </div>
           </div>
         </div>
+
+        {/* Summary */}
         <div className="card-body">
-          {/* Summary */}
-          <div className="mt-6 text-lg text-gray-500 mb-5">
-            <h2 className="text-3xl font-bold text-gray-800 mb-5">Summary</h2>
-            <p className="break-words">
+          <div className=" px-6 space-y-4 ">
+            <h2 className="text-3xl font-bold active">Summary</h2>
+            <p className="break-words  text-lg opacity-50 font-semibold">
               {isExpanded ? summary : `${summary.slice(0, 396)}...`}
             </p>
             <button
               onClick={toggleSummary}
-              className="text-blue-500 hover:underline mt-2"
+              className="text-blue-500 hover:underline"
             >
               {isExpanded ? "Show Less" : "Read More"}
             </button>
           </div>
-          <div className="card-actions justify-end">
+
+          {/* buttons */}
+          <div className="card-actions flex-col md:flex-row lg:flex-row 
+          md:justify-around lg:justify-around 
+          gap-5 items-end  pr-4 md:pr-0 lg:pr-0 py-2 md:py-6 lg:py-6">
             <button
               onClick={handleDelete}
               className="btn bg-primary text-white lg:text-xl"
             >
               Delete Movie
             </button>
+
             <button
               onClick={handleAddTOFavorite}
-              className="btn bg-primary text-white lg:text-xl"
+              className={"btn bg-primary text-white lg:text-xl"}
               disabled={isFavorite}
             >
               {isFavorite ? "Added to Favorites" : "Add to Favorite"}
             </button>
+            
             <button className="btn bg-primary text-white lg:text-xl">
               <Link to={`/update/${_id}`}> Update Movie</Link>
             </button>

@@ -29,12 +29,14 @@ const MovieCard = ({ movie }) => {
           <h2 className="text-lg  lg:text-2xl font-bold mt-3
           
           ">Title:  
-            <span>  {name}</span></h2>
+            <span className="text-lg font-semibold">  {name}</span></h2>
+
           <p className="text-base ">
             <span className=" font-semibold text-sm lg:font-bold lg:text-lg
             
             ">Genre:</span> {genre}
           </p>
+          
           <p className="text-base ">
             <span className="font-semibold text-sm lg:font-bold lg:text-lg
             
