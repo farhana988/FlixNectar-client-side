@@ -190,6 +190,7 @@ const AddMovie = () => {
                className={`select select-bordered  ${isToggled?
                 "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
               }`}
+              
                required>
                 <option value="" disabled selected>
                   Select Genre

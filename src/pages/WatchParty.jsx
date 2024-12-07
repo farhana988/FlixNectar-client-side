@@ -59,7 +59,7 @@ const WatchParty = () => {
                       href={movie.discordLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn bg-primary text-ivory"
+                      className="btn bg-primary text-ivory lg:text-lg"
                     >
                       Join Watch Party
                     </a>

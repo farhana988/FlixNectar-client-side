@@ -109,7 +109,7 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
               onClick={() => handleDelete(_id)}
               className="btn bg-primary text-white lg:text-xl"
             >
-              delete
+              Delete Favorite
             </button>
           </div>
       </div>

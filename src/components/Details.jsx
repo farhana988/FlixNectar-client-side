@@ -213,6 +213,7 @@ const Details = () => {
               Delete Movie
             </button>
 
+            <div className="bg-white rounded-xl">
             <button
               onClick={handleAddTOFavorite}
               className={"btn bg-primary text-white lg:text-xl"}
@@ -220,6 +221,7 @@ const Details = () => {
             >
               {isFavorite ? "Added to Favorites" : "Add to Favorite"}
             </button>
+            </div>
             
             <button className="btn bg-primary text-white lg:text-xl">
               <Link to={`/update/${_id}`}> Update Movie</Link>

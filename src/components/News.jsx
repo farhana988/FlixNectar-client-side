@@ -110,12 +110,12 @@ const News = () => {
           <section>
             {/* movie news */}
             <button
-              className={`btn btn-wide ${
+              className={`btn btn-wide  ${
                 selectedCategory === "movieNews"
                   ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
                   : isToggled
-                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
-                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
+                  : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"
               } mx-2`}
               onClick={() => setSelectedCategory("movieNews")}
             >
@@ -127,8 +127,8 @@ const News = () => {
                 selectedCategory === "interviews"
                   ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
                   : isToggled
-                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
-                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
+                  : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"
               } mx-2`}
               onClick={() => setSelectedCategory("interviews")}
             >
@@ -142,8 +142,8 @@ const News = () => {
                 selectedCategory === "filmReviews"
                   ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
                   : isToggled
-                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
-                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
+                  : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"
               } mx-2`}
               onClick={() => setSelectedCategory("filmReviews")}
             >
@@ -155,8 +155,8 @@ const News = () => {
                 selectedCategory === "behindTheScenes"
                   ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
                   : isToggled
-                  ? "bg-gray-300 text-darkSlate hover:bg-gray-300"
-                  : "bg-ivory text-darkSlate hover:bg-gray-600"
+                  ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
+                  : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"
               } mx-2`}
               onClick={() => setSelectedCategory("behindTheScenes")}
             >
