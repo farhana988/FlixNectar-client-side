@@ -14,13 +14,13 @@ const MyFavorites = () => {
 
 
     return (
-        <div className="container mx-auto  pt-10">
+        <div className="container mx-auto  py-10">
           <Heading
           title={'My Favorite Films'}
           subtitle={'Here’s a collection of movies that have left a lasting impact on me. Whether its the storytelling, characters, or visuals, these films hold a special place in my heart.'}
           ></Heading>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5 lg:px-0 ">
           {loadedFavorite.map((favorite) => (
            <FavoriteCard
            favorite={favorite}

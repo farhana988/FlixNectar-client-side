@@ -142,7 +142,7 @@ const Navbar = () => {
           <div id="logo" className="flex relative">
             <Link
               to="/"
-              className={`font-bold text-2xl md:text-3xl lg:text-5xl  z-10 
+              className={`font-bold text-2xl md:text-3xl lg:text-5xl lg:ml-10 z-10 
                 ${isToggled ? "text-primary" : "text-ivory"}`} 
             >
               <> FlixNectar</>

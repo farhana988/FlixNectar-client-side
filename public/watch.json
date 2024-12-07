@@ -1,7 +1,7 @@
 [
     {
       "title": "The Matrix",
-      "image": "https://source.unsplash.com/random/300x200?movie1",
+      "image": "https://i.ibb.co/NsKxNxv/The-Matrix.png",
       "discordLink": "https://discord.com/invite/yourdiscordlink1",
       "comments": [
         "Amazing movie! Loved every second of it.",
@@ -11,7 +11,7 @@
     },
     {
       "title": "Inception",
-      "image": "https://source.unsplash.com/random/300x200?movie2",
+      "image": "https://i.ibb.co/mhHmmws/Inception.jpg",
       "discordLink": "https://discord.com/invite/yourdiscordlink2",
       "comments": [
         "Incredible plot twists, totally mind-blowing!",
@@ -21,7 +21,7 @@
     },
     {
       "title": "Interstellar",
-      "image": "https://source.unsplash.com/random/300x200?movie3",
+      "image": "https://i.ibb.co/y8MCbNg/Interstellar.png",
       "discordLink": "https://discord.com/invite/yourdiscordlink3",
       "comments": [
         "The visuals in this movie are out of this world!",
@@ -31,7 +31,7 @@
     },
     {
       "title": "The Dark Knight",
-      "image": "https://source.unsplash.com/random/300x200?movie4",
+      "image": "https://i.ibb.co/zF81pF8/The-Dark-Knight.png",
       "discordLink": "https://discord.com/invite/yourdiscordlink4",
       "comments": [
         "An epic story and a fantastic performance by Heath Ledger.",
@@ -40,18 +40,18 @@
       ]
     },
     {
-      "title": "The Shawshank Redemption",
-      "image": "https://source.unsplash.com/random/300x200?movie5",
+      "title": "The Lion King",
+      "image": "https://i.ibb.co/kgJ1hf5/The-Lion-King.webp",
       "discordLink": "https://discord.com/invite/yourdiscordlink5",
       "comments": [
-        "Such an inspiring story, truly one of the best.",
-        "A timeless classic. I can't stop watching it.",
-        "The ending left me speechless."
+        "An emotional journey with unforgettable music.",
+        "Simba's story is both inspiring and heartwarming.",
+        "The circle of life—what a profound message!"
       ]
     },
     {
       "title": "Forrest Gump",
-      "image": "https://source.unsplash.com/random/300x200?movie6",
+      "image": "https://i.ibb.co/zh2CM53/Forrest-Gump.jpg",
       "discordLink": "https://discord.com/invite/yourdiscordlink6",
       "comments": [
         "A beautiful and heartwarming movie, loved it!",
@@ -61,7 +61,7 @@
     },
     {
       "title": "Gladiator",
-      "image": "https://source.unsplash.com/random/300x200?movie7",
+      "image": "https://i.ibb.co/FHLNNcn/Gladiator.png",
       "discordLink": "https://discord.com/invite/yourdiscordlink7",
       "comments": [
         "An epic tale of revenge and justice. What a film!",
@@ -71,7 +71,7 @@
     },
     {
       "title": "The Godfather",
-      "image": "https://source.unsplash.com/random/300x200?movie8",
+      "image": "https://i.ibb.co/NyhmVDD/The-Godfather.png",
       "discordLink": "https://discord.com/invite/yourdiscordlink8",
       "comments": [
         "A legendary film. Truly the best in its genre.",
@@ -80,18 +80,19 @@
       ]
     },
     {
-      "title": "The Lord of the Rings: The Fellowship of the Ring",
-      "image": "https://source.unsplash.com/random/300x200?movie9",
-      "discordLink": "https://discord.com/invite/yourdiscordlink9",
+      "title": "Jurassic Park",
+      "image": "https://i.ibb.co/BgL2vv6/Jurassic-Park.webp",
+      "discordLink": "https://discord.com/invite/yourdiscordlink20",
       "comments": [
-        "An incredible adventure, one of the best trilogies ever.",
-        "The world-building and character development is unmatched.",
-        "I could watch this movie over and over again!"
+        "Dinosaurs brought to life like never before!",
+        "Spielberg's direction is simply masterful.",
+        "A thrilling adventure that never gets old."
       ]
     },
+    
     {
       "title": "Pulp Fiction",
-      "image": "https://source.unsplash.com/random/300x200?movie10",
+      "image": "https://i.ibb.co/rcGDXr0/Pulp-Fiction.jpg",
       "discordLink": "https://discord.com/invite/yourdiscordlink10",
       "comments": [
         "Quentin Tarantino's best film by far.",

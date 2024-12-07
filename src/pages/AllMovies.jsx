@@ -26,7 +26,7 @@ const AllMovies = () => {
   return (
     <div>
       {/* featured mpvies section */}
-      <section className="container mx-auto pt-10">
+      <section className="container mx-auto py-10">
         <Heading
           title={"All Movies"}
           subtitle={
@@ -35,13 +35,13 @@ const AllMovies = () => {
         ></Heading>
 
         {/* search */}
-        <div className="w-96 lg:w-[500px] mx-auto mb-10 relative">
+        <div className="w-96 lg:w-[500px] mx-auto mb-10 relative shadow-xl  rounded-xl">
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             name="search"
             placeholder="search by title"
-            className="input input-bordered w-full  pl-14 rounded-xl"
+            className="input input-bordered input-primary w-full text-black active pl-14 rounded-xl"
             required
           />
           <FaSearch className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500" /> 

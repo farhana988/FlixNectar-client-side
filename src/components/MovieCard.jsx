@@ -70,7 +70,7 @@ const MovieCard = ({ movie }) => {
             ))}
           </div>
 
-          <div className="card-actions justify-end pr-7 pb-4">
+          <div className="card-actions justify-end pr-7 py-6">
             <button className="btn bg-primary text-white lg:text-xl ">
               <Link to={`/details/${_id}`}> See Details</Link>
             </button>
