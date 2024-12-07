@@ -141,16 +141,20 @@ const AddMovie = () => {
             {/* movie poster*/}
             <div className="form-control flex-1">
               <label className="label">
-                <span className={`label-text text-lg font-semibold ${isToggled ?
-                  "text-darkSlate":"text-ivory"}`}
-                  >Movie Poster</span>
+                <span
+                  className={`label-text text-lg font-semibold ${
+                    isToggled ? "text-darkSlate" : "text-ivory"
+                  }`}
+                >
+                  Movie Poster
+                </span>
               </label>
               <input
                 type="text"
                 name="photo"
                 placeholder="Movie Poster"
-                className={`input input-bordered  ${isToggled?
-                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                className={`input input-bordered  ${
+                  isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               />
@@ -161,15 +165,20 @@ const AddMovie = () => {
             {/* movie title */}
             <div className="form-control flex-1">
               <label className="label">
-                <span className={`label-text text-lg font-semibold ${isToggled ?
-                  "text-darkSlate":"text-ivory"}`}>Movie Title</span>
+                <span
+                  className={`label-text text-lg font-semibold ${
+                    isToggled ? "text-darkSlate" : "text-ivory"
+                  }`}
+                >
+                  Movie Title
+                </span>
               </label>
               <input
                 type="text"
                 name="name"
                 placeholder="Movie Title"
-                className={`input input-bordered  ${isToggled?
-                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                className={`input input-bordered  ${
+                  isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               />
@@ -181,17 +190,22 @@ const AddMovie = () => {
             {/* genre */}
             <div className="form-control flex-1">
               <label className="label">
-                <span className={`label-text text-lg font-semibold ${isToggled ?
-                  "text-darkSlate":"text-ivory"}`}>Genre</span>
+                <span
+                  className={`label-text text-lg font-semibold ${
+                    isToggled ? "text-darkSlate" : "text-ivory"
+                  }`}
+                >
+                  Genre
+                </span>
               </label>
 
-              <select name="genre"
-               
-               className={`select select-bordered  ${isToggled?
-                "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
-              }`}
-              
-               required>
+              <select
+                name="genre"
+                className={`select select-bordered ${
+                  isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
+                }`}
+                required
+              >
                 <option value="" disabled selected>
                   Select Genre
                 </option>
@@ -212,15 +226,20 @@ const AddMovie = () => {
             {/* duration */}
             <div className="form-control flex-1">
               <label className="label">
-                <span className={`label-text text-lg font-semibold ${isToggled ?
-                  "text-darkSlate":"text-ivory"}`}>Duration</span>
+                <span
+                  className={`label-text text-lg font-semibold ${
+                    isToggled ? "text-darkSlate" : "text-ivory"
+                  }`}
+                >
+                  Duration
+                </span>
               </label>
               <input
                 type="text"
                 name="duration"
                 placeholder="duration"
-                className={`input input-bordered  ${isToggled?
-                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                className={`input input-bordered  ${
+                  isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               />
@@ -234,8 +253,13 @@ const AddMovie = () => {
             {/* release year */}
             <div className="form-control flex-1 ">
               <label className="label">
-                <span className={`label-text text-lg font-semibold ${isToggled ?
-                  "text-darkSlate":"text-ivory"}`}>Release Year</span>
+                <span
+                  className={`label-text text-lg font-semibold ${
+                    isToggled ? "text-darkSlate" : "text-ivory"
+                  }`}
+                >
+                  Release Year
+                </span>
               </label>
               <DatePicker
                 name="releaseYear"
@@ -244,9 +268,8 @@ const AddMovie = () => {
                 showYearPicker
                 dateFormat="yyyy"
                 placeholderText="Select a year"
-              
-                className={`input input-bordered  w-full select ${isToggled?
-                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                className={`input input-bordered  w-full select ${
+                  isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               />
@@ -257,15 +280,21 @@ const AddMovie = () => {
             {/* rating */}
             <div className="form-control flex-1 ">
               <label className="label">
-                <span className={`label-text text-lg font-semibold ${isToggled ?
-                  "text-darkSlate":"text-ivory"}`}>Rating </span>
+                <span
+                  className={`label-text text-lg font-semibold ${
+                    isToggled ? "text-darkSlate" : "text-ivory"
+                  }`}
+                >
+                  Rating{" "}
+                </span>
               </label>
 
               <div
-              className={`rating-container flex justify-between input input-bordered
-                  ${isToggled?
-                "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
-              }`}>
+                className={`rating-container flex justify-between input input-bordered
+                  ${
+                    isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
+                  }`}
+              >
                 <Rating
                   onClick={handleRating}
                   type="text"
@@ -286,16 +315,20 @@ const AddMovie = () => {
           {/* summary */}
           <div className="form-control h-40">
             <label className="label">
-              <span className={`label-text text-lg font-semibold ${isToggled ?
-                  "text-darkSlate":"text-ivory"}`}>Summary</span>
+              <span
+                className={`label-text text-lg font-semibold ${
+                  isToggled ? "text-darkSlate" : "text-ivory"
+                }`}
+              >
+                Summary
+              </span>
             </label>
             <textarea
               type="text"
               name="summary"
               placeholder="Movie summary"
-              
-              className={`input input-bordered h-full p-4 ${isToggled?
-                "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+              className={`input input-bordered h-full p-4 ${
+                isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
               }`}
               required
             />
@@ -305,7 +338,9 @@ const AddMovie = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn bg-primary  text-ivory lg:text-xl">Add Movie</button>
+            <button className="btn bg-primary  text-ivory lg:text-xl">
+              Add Movie
+            </button>
           </div>
         </form>
       </div>

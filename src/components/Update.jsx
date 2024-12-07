@@ -112,7 +112,7 @@ const Update = () => {
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "movie added successfully",
+            text: "movie updated successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });

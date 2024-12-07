@@ -10,6 +10,7 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
   const validRating =
     typeof rating === "number" && !isNaN(rating) ? Math.floor(rating) : 0;
     const { isToggled } = useContext(ThemeContext);
+    
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",

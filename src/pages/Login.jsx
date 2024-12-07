@@ -5,16 +5,15 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 import { ThemeContext } from "../provider/ThemeProvider";
+import Swal from "sweetalert2";
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   const { isToggled } = useContext(ThemeContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const {register, handleSubmit, formState: { errors },} = useForm();
+
+
   const onSubmit = (data) => {
     const { email, password } = data;
 
@@ -22,8 +21,13 @@ const Login = () => {
       .then(() => {
         navigate(location.state?.from || "/");
       })
-      .catch((e) => {
-        alert(e);
+      .catch(() => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text: 'Something went wrong. Please try again!',
+          confirmButtonText: 'Try Again',
+        });
       });
   };
 
@@ -32,19 +36,25 @@ const Login = () => {
       .then(() => {
         navigate(location.state?.from || "/");
       })
-      .catch((e) => {
-        alert(e);
+      .catch(() => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Google Login Failed',
+          text: 'Something went wrong with Google login. Please try again!',
+          confirmButtonText: 'Try Again',
+        });
       });
   };
+
+
   return (
     <div>
       <div>
         <div className="hero py-32">
           <div className="hero-content flex-col">
             <h2
-              
-       className={`text-3xl md:text-5xl lg:text-7xl font-bold mb-14 
-        ${isToggled ? "text-primary" : "text-ivory"} active`} 
+              className={`text-3xl md:text-5xl lg:text-7xl font-bold mb-14 
+        ${isToggled ? "text-primary" : "text-ivory"} active`}
             >
               Login Form
             </h2>
@@ -61,9 +71,10 @@ const Login = () => {
                 {/* Email input field */}
                 <div className="form-control">
                   <label className="label">
-                    <span 
-                    className={`font-bold text-2xl ${isToggled ?
-                      "text-darkSlate":"text-ivory"}`}
+                    <span
+                      className={`font-bold text-2xl ${
+                        isToggled ? "text-darkSlate" : "text-ivory"
+                      }`}
                     >
                       Email
                     </span>
@@ -72,9 +83,11 @@ const Login = () => {
                     type="email"
                     {...register("email", { required: "Email is required" })}
                     placeholder="email"
-                   className={`input input-bordered  ${isToggled?
-                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
-                }`}
+                    className={`input input-bordered  ${
+                      isToggled
+                        ? "text-darkSlate"
+                        : "bg-[#5b5d5f88]  text-ivory"
+                    }`}
                   />
                   {/* Error message for email */}
                   {errors.email && (
@@ -87,9 +100,11 @@ const Login = () => {
                 {/* Password input field */}
                 <div className="form-control">
                   <label className="label">
-                    <span 
-                    className={`label-text font-bold text-2xl ${isToggled ?
-                      "text-darkSlate":"text-ivory"}`}>
+                    <span
+                      className={`label-text font-bold text-2xl ${
+                        isToggled ? "text-darkSlate" : "text-ivory"
+                      }`}
+                    >
                       Password
                     </span>
                   </label>
@@ -99,9 +114,11 @@ const Login = () => {
                       required: "Password is required",
                     })}
                     placeholder="password"
-                   className={`input input-bordered  ${isToggled?
-                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
-                }`}
+                    className={`input input-bordered  ${
+                      isToggled
+                        ? "text-darkSlate"
+                        : "bg-[#5b5d5f88]  text-ivory"
+                    }`}
                   />
                   {/* Error message for password */}
                   {errors.password && (
@@ -112,9 +129,9 @@ const Login = () => {
                   <label className="label">
                     <a
                       href="#"
-                 
-                      className={`label-text-alt link link-hover text-xl opacity-50 ${isToggled ?
-                        "text-darkSlate":"text-ivory"}`}
+                      className={`label-text-alt link link-hover text-xl opacity-50 ${
+                        isToggled ? "text-darkSlate" : "text-ivory"
+                      }`}
                     >
                       Forgot password?
                     </a>

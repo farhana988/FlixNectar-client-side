@@ -39,36 +39,52 @@ const Details = () => {
   }, [_id, email]);
 
   const handleDelete = () => {
-    fetch(`https://assi10-api.vercel.app/movie/${_id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount === 1) {
-          Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-          }).then(() => {
-            navigate("/allMovies");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://assi10-api.vercel.app/movie/${_id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount === 1) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your movie has been deleted.",
+                icon: "success"
+              });
+              navigate("/allMovies");
+            } else {
+              Swal.fire({
+                title: "Error!",
+                text: "Failed to delete the movie.",
+                icon: "error",
+                confirmButtonText: "Ok",
+              });
+            }
+          })
+          .catch(() => {
+            Swal.fire({
+              title: "Error!",
+              text: "Something went wrong, please try again.",
+              icon: "error",
+              confirmButtonText: "Ok",
+            });
           });
-        } else {
-          Swal.fire({
-            title: "Error!",
-            text: "Failed to delete the movie.",
-            icon: "error",
-            confirmButtonText: "Ok",
-          });
-        }
-      });
+      }
+    });
   };
+  
 
   const handleAddTOFavorite = () => {
     if (isFavorite) return;

@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import googleLogo from "../assets/google-logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import { ThemeContext } from "../provider/ThemeProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const {  setUser,  manageProfile, registerUser } = useContext(AuthContext);
+  const {  setUser,  manageProfile, registerUser ,  signInWithGoogle } = useContext(AuthContext);
   const { isToggled } = useContext(ThemeContext);
 
   const navigate = useNavigate();
@@ -53,18 +54,39 @@ const Register = () => {
           };
           setUser(updatedUser);
           navigate('/');
-        }).catch((err) => {
-          setError("Profile update failed. Please try again.");
-          console.error(err);
+        }).catch(() => {
+          Swal.fire({
+            title: 'Error!',
+            text: 'Profile update failed. Please try again.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
         });
       })
-      .catch((err) => {
-        setError("Registration failed. Please try again.");
-        console.error(err);
+      .catch(() => {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Registration failed. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       });
   };
 
- 
+  const handleGoogleLogIn = () => {
+    signInWithGoogle().then(() => {
+   
+      navigate('/');
+    })
+    .catch(() => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Google Login Failed',
+        text: 'Something went wrong with Google login. Please try again!',
+        confirmButtonText: 'Try Again',
+      });
+    });
+  };
  
 
   return (
@@ -92,11 +114,11 @@ const Register = () => {
                   name="name"
                   placeholder="Name"
                   className={`input input-bordered  ${isToggled?
-                  "text-darkSlate":"bg-[#5b5d5f88]  text-ivory"
+                  "text-darkSlate":"bg-[#5b5d5f88] text-ivory"
                 }`}
                   {...register("name", { required: "Name is required" })}
                 />
-                {errors.name && <p className="text-red-900">{errors.name.message}</p>}
+                {errors.name && <p className="text-red-500">{errors.name.message}</p>}
               </div>
 
               <div className="form-control">
@@ -116,7 +138,7 @@ const Register = () => {
                     message: "Invalid email address"
                   } })}
                 />
-                {errors.email && <p className="text-red-900">{errors.email.message}</p>}
+                {errors.email && <p className="text-red-500">{errors.email.message}</p>}
               </div>
 
               <div className="form-control">
@@ -133,7 +155,7 @@ const Register = () => {
                 }`}
                   {...register("image", { required: "Photo URL is required" })}
                 />
-                {errors.image && <p className="text-red-900">{errors.image.message}</p>}
+                {errors.image && <p className="text-red-500">{errors.image.message}</p>}
               </div>
 
               <div className="form-control">
@@ -150,10 +172,10 @@ const Register = () => {
                 }`}
                   {...register("password", { required: "Password is required" })}
                 />
-                {errors.password && <p className="text-red-900">{errors.password.message}</p>}
+                {errors.password && <p className="text-red-500">{errors.password.message}</p>}
               </div>
 
-              {error && <p className="text-red-900">{error}</p>}
+              {error && <p className="text-red-500">{error}</p>}
 
               <div className="form-control mt-6">
                 <button className="btn bg-primary text-white font-bold text-2xl">Register</button>
@@ -171,7 +193,8 @@ const Register = () => {
 
             <div className="divider text-primary font-bold text-xl">OR</div>
             <div className="space-y-4">
-              <button className="pb-8 w-full flex items-center justify-center gap-2">
+              <button  onClick={handleGoogleLogIn}
+              className="pb-8 w-full flex items-center justify-center gap-2">
                 <img src={googleLogo} alt="Google" className="w-6 h-6" />
                 Continue with Google
               </button>
