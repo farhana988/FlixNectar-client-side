@@ -48,50 +48,46 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
   return (
     <div>
     <div
-      className={`card card-compact shadow-xl shadow-primary ${
+      className={`card card-compact h-[480px] flex flex-col shadow-xl shadow-primary ${
         isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
       }`}
     >
       <figure>
         <img
-          className="  w-10/12 h-40 rounded-xl mt-7"
+          className="w-10/12 h-40 rounded-xl mt-7"
           src={photo}
           alt={name}
         />
       </figure>
-      <div className="pl-8">
-        <h2 className="text-lg  lg:text-2xl font-bold mt-3
-        
-        ">Title:  
-          <span>  {name}</span></h2>
+      <div className="pl-8 flex-grow">
+        <h2 className="text-lg lg:text-2xl font-bold mt-3">
+          Title:  
+          <span className="text-lg font-semibold break-words">  {name}</span>
+        </h2>
         <p className="text-base ">
-          <span className=" font-semibold text-sm lg:font-bold lg:text-lg
-          
-          ">Genre:</span> {genre}
+          <span className="font-semibold text-sm lg:font-bold lg:text-lg">
+            Genre:
+          </span> {genre}
         </p>
         <p className="text-base ">
-          <span className="font-semibold text-sm lg:font-bold lg:text-lg
-          
-          ">Duration:</span> {duration} min
+          <span className="font-semibold text-sm lg:font-bold lg:text-lg">
+            Duration:
+          </span> {duration} min
         </p>
-
-
         <p className="text-base ">
-          <span className="font-semibold text-sm lg:font-bold lg:text-lg"
-          
-          >Release Year:</span>{" "}
+          <span className="font-semibold text-sm lg:font-bold lg:text-lg">
+            Release Year:
+          </span>{" "}
           {releaseYear}
         </p>
-
-        <div className="flex items-center font-semibold text-sm lg:font-bold lg:text-lg
-
-        ">
+  
+        <div className="flex items-center font-semibold text-sm lg:font-bold lg:text-lg">
           <span className="mr-2">Rating:</span> 
           {[...Array(validRating)].map((_, index) => (
             <svg
               key={index}
               xmlns="http://www.w3.org/2000/svg"
-              className= " w-5 h-5 lg:w-7 lg:h-7 text-yellow-400"
+              className="w-5 h-5 lg:w-7 lg:h-7 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -104,18 +100,20 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
             </svg>
           ))}
         </div>
-
-        <div className="card-actions justify-end pr-7 py-6">
-            <button
-              onClick={() => handleDelete(_id)}
-              className="btn bg-primary text-white lg:text-xl"
-            >
-              Delete Favorite
-            </button>
-          </div>
+      </div>
+  
+  
+      <div className="card-actions justify-end pr-7 py-6 mt-auto"> 
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn bg-primary text-white lg:text-xl"
+        >
+          Delete Favorite
+        </button>
       </div>
     </div>
   </div>
+  
   );
 };
 export default FavoriteCard;

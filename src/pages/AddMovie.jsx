@@ -12,89 +12,111 @@ import { ThemeContext } from "../provider/ThemeProvider";
 const AddMovie = () => {
   const { isToggled } = useContext(ThemeContext);
 
+  const [form, setForm] = useState({
+    photo: "",
+    name: "",
+    genre: [],
+    duration: "",
+    releaseYear: "",
+    summary: "",
+  });
   const [selectedDate, setSelectedDate] = useState(null);
   const [rating, setRating] = useState(0);
+  const [errors, setErrors] = useState({});
 
-  const [photoError, setPhotoError] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [genreError, setGenreError] = useState("");
-  const [durationError, setDurationError] = useState("");
-  const [releaseYearError, setReleaseYearError] = useState("");
-  const [ratingError, setRatingError] = useState("");
-  const [summaryError, setSummaryError] = useState("");
+
+   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prevForm) => ({ ...prevForm, [name]: value }));
+
+
+    setErrors((prevErrors) => {
+      const updatedErrors = { ...prevErrors };
+
+      if (name === "photo" && isValidURL(value)) delete updatedErrors.photo;
+      if (name === "name" && value.length >= 2) delete updatedErrors.name;
+      if (name === "duration" && !isNaN(value) && value > 60) delete updatedErrors.duration;
+      if (name === "summary" && value.length >= 10) delete updatedErrors.summary;
+
+      return updatedErrors;
+    });
+  };
+
+  const handleGenreChange = (e) => {
+    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
+    setForm((prevForm) => ({ ...prevForm, genre: selectedOptions }));
+
+    setErrors((prevErrors) => {
+      const updatedErrors = { ...prevErrors };
+      if (selectedOptions.length > 0) delete updatedErrors.genre;
+      return updatedErrors;
+    });
+  };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+
+    setErrors((prevErrors) => {
+      const updatedErrors = { ...prevErrors };
+      if (date) delete updatedErrors.releaseYear;
+      return updatedErrors;
+    });
   };
 
   const handleRating = (rate) => {
     setRating(rate);
+
+    setErrors((prevErrors) => {
+      const updatedErrors = { ...prevErrors };
+      if (rate > 0) delete updatedErrors.rating;
+      return updatedErrors;
+    });
   };
+
+
   const handleAddMovie = (e) => {
     e.preventDefault();
-    const photo = e.target.photo.value;
-    const name = e.target.name.value;
-    const genre = e.target.genre.value;
-    const duration = e.target.duration.value;
-    const releaseYear = e.target.releaseYear.value;
-    const summary = e.target.summary.value;
+    const newErrors = {};
 
-    let isValid = true;
-    setPhotoError("");
-    setNameError("");
-    setGenreError("");
-    setDurationError("");
-    setReleaseYearError("");
-    setRatingError("");
-    setSummaryError("");
-
-    if (!photo || !isValidURL(photo)) {
-      setPhotoError("Please provide a valid image URL for the movie poster.");
-      isValid = false;
+  
+    if (!form.photo || !isValidURL(form.photo)) {
+      newErrors.photo = "Please provide a valid image URL.";
     }
-    if (!name || name.length < 2) {
-      setNameError("Movie title must have at least 2 characters.");
-      isValid = false;
+    if (!form.name || form.name.length < 2) {
+      newErrors.name = "Movie title must be at least 2 characters long.";
     }
-    if (!genre) {
-      setGenreError("Please select a genre.");
-      isValid = false;
+    if (!form.genre || form.genre.length === 0) {
+      newErrors.genre = "Please select at least one genre.";
     }
-    if (!duration || isNaN(duration) || duration <= 60) {
-      setDurationError("Duration must be a number greater than 60 minutes.");
-      isValid = false;
+    if (!form.duration || isNaN(form.duration) || form.duration <= 60) {
+      newErrors.duration = "Duration must be a number greater than 60 minutes.";
     }
-
-    if (!releaseYear) {
-      setReleaseYearError("Please select a release year.");
-      isValid = false;
+    if (!selectedDate) {
+      newErrors.releaseYear = "Please select a release year.";
     }
     if (rating === 0) {
-      setRatingError("Please select a rating.");
-      isValid = false;
+      newErrors.rating = "Please select a rating.";
     }
-    if (!summary || summary.length < 10) {
-      setSummaryError("Summary must be at least 10 characters long.");
-      isValid = false;
+    if (!form.summary || form.summary.length < 10) {
+      newErrors.summary = "Summary must be at least 10 characters long.";
     }
 
-    if (!isValid) return;
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     const newMovie = {
-      photo,
-      name,
-      genre,
-      duration,
-      releaseYear,
+      ...form,
+      releaseYear: selectedDate.getFullYear(),
       rating,
-      summary,
+      genre: form.genre.join(", "),
     };
+
 
     fetch("https://assi10-api.vercel.app/movie", {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newMovie),
     })
       .then((res) => res.json())
@@ -102,11 +124,11 @@ const AddMovie = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "movie added successfully",
+            text: "Movie added successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });
-          e.target.reset();
+          setForm({ photo: "", name: "", genre: [], duration: "", summary: "" });
           setRating(0);
           setSelectedDate(null);
         }
@@ -123,7 +145,7 @@ const AddMovie = () => {
   };
 
   return (
-    <div className="lg:w-3/4 mx-auto  pt-10">
+    <div className="lg:w-3/4 mx-auto  py-10">
       <Heading
         title={"Add movie"}
         subtitle={
@@ -136,7 +158,7 @@ const AddMovie = () => {
           isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
         }`}
       >
-        <form onSubmit={handleAddMovie} className="card-body">
+        <form  onSubmit={handleAddMovie} className="card-body">
           <div className="flex flex-col lg:flex-row gap-5">
             {/* movie poster*/}
             <div className="form-control flex-1">
@@ -152,15 +174,15 @@ const AddMovie = () => {
               <input
                 type="text"
                 name="photo"
-                placeholder="Movie Poster"
+                placeholder="Movie Poster URL"
+              value={form.photo}
+              onChange={handleInputChange}
                 className={`input input-bordered  ${
                   isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               />
-              {photoError && (
-                <p className="text-red-500 text-sm">{photoError}</p>
-              )}
+               {errors.photo && <p className="text-red-500 text-sm">{errors.photo}</p>}
             </div>
             {/* movie title */}
             <div className="form-control flex-1">
@@ -177,18 +199,20 @@ const AddMovie = () => {
                 type="text"
                 name="name"
                 placeholder="Movie Title"
+                value={form.name}
+                onChange={handleInputChange}
                 className={`input input-bordered  ${
                   isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               />
-              {nameError && <p className="text-red-500 text-sm">{nameError}</p>}
+             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-5">
             {/* genre */}
-            <div className="form-control flex-1">
+            <div className="form-control flex-1 ">
               <label className="label">
                 <span
                   className={`label-text text-lg font-semibold ${
@@ -201,16 +225,19 @@ const AddMovie = () => {
 
               <select
                 name="genre"
+                multiple
+                value={form.genre}
+                onChange={handleGenreChange}
                 className={`select select-bordered ${
                   isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               >
-                <option value="" disabled selected>
-                  Select Genre
-                </option>
-                <option value="action">Action</option>
-                <option value="comedy">Comedy</option>
+               
+               
+               <option value="action">Action</option>
+               <option value="comedy">Comedy</option>
+              
                 <option value="drama">Drama</option>
                 <option value="horror">Horror</option>
                 <option value="romance">Romance</option>
@@ -219,10 +246,9 @@ const AddMovie = () => {
                 <option value="documentary">Documentary</option>
                 <option value="animation">Animation</option>
               </select>
-              {genreError && (
-                <p className="text-red-500 text-sm">{genreError}</p>
-              )}
+              {errors.genre && <p className="text-red-500 text-sm">{errors.genre}</p>}
             </div>
+            
             {/* duration */}
             <div className="form-control flex-1">
               <label className="label">
@@ -237,15 +263,15 @@ const AddMovie = () => {
               <input
                 type="text"
                 name="duration"
-                placeholder="duration"
+                placeholder="Duration"
+                value={form.duration}
+                onChange={handleInputChange}
                 className={`input input-bordered  ${
                   isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
                 }`}
                 required
               />
-              {durationError && (
-                <p className="text-red-500 text-sm">{durationError}</p>
-              )}
+                {errors.duration && <p className="text-red-500 text-sm">{errors.duration}</p>}
             </div>
           </div>
 
@@ -273,9 +299,9 @@ const AddMovie = () => {
                 }`}
                 required
               />
-              {releaseYearError && (
-                <p className="text-red-500 text-sm">{releaseYearError}</p>
-              )}
+              {errors.releaseYear && (
+              <p className="text-red-500 text-sm">{errors.releaseYear}</p>
+            )}
             </div>
             {/* rating */}
             <div className="form-control flex-1 ">
@@ -297,6 +323,7 @@ const AddMovie = () => {
               >
                 <Rating
                   onClick={handleRating}
+                  ratingValue={rating}
                   type="text"
                   placeholder="rating "
                   required
@@ -306,9 +333,7 @@ const AddMovie = () => {
                   {rating}
                 </div>
               </div>
-              {ratingError && (
-                <p className="text-red-500 text-sm">{ratingError}</p>
-              )}
+              {errors.rating && <p className="text-red-500 text-sm">{errors.rating}</p>}
             </div>
           </div>
 
@@ -327,14 +352,14 @@ const AddMovie = () => {
               type="text"
               name="summary"
               placeholder="Movie summary"
+              value={form.summary}
+              onChange={handleInputChange}
               className={`input input-bordered h-full p-4 ${
                 isToggled ? "text-darkSlate" : "bg-[#5b5d5f88]  text-ivory"
               }`}
               required
             />
-            {summaryError && (
-              <p className="text-red-500 text-sm">{summaryError}</p>
-            )}
+            {errors.summary && <p className="text-red-500 text-sm">{errors.summary}</p>}
           </div>
 
           <div className="form-control mt-6">

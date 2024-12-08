@@ -135,23 +135,23 @@ const Details = () => {
           isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
         }`}
       >
-        <div className="flex flex-col lg:flex-row lg:gap-10">
+        <div className="flex flex-col lg:flex-row ">
           {/* image */}
           <figure>
             <img
-              className=" w-[800px] h-96 rounded-xl m-7"
+              className="w-80 md:w-full lg:w-[800px] h-40 md:h-80 lg:h-96 rounded-xl m-7"
               src={photo}
               alt={name}
             />
           </figure>
 
           {/* details */}
-          <div className="space-y-2 pl-10 md:px-20 lg:px-0 lg:mt-20">
-            <section className="grid  grid-cols-2 lg:grid-cols-1  lg:gap-2  items-center">
+          <div className="space-y-2 px-7 md:px-10 lg:px-0 lg:mt-20 mr-6">
+            <section className="grid grid-cols-1  lg:gap-2  items-center">
               {/* title */}
               <h2 className="text-lg  lg:text-2xl font-bold">
                 Title:
-                <span className="text-lg font-semibold"> {name}</span>
+                <span className="text-lg font-semibold break-words"> {name}</span>
               </h2>
               {/* genre */}
               <p className="text-base ">
@@ -162,7 +162,7 @@ const Details = () => {
               </p>
             </section>
 
-            <section className="grid  grid-cols-2 lg:grid-cols-1 lg:gap-2 items-center">
+            <section className="grid  grid-cols-1 lg:gap-2 items-center">
               {/* duration */}
               <p className="text-base ">
                 <span className="font-semibold text-sm lg:font-bold lg:text-lg">
