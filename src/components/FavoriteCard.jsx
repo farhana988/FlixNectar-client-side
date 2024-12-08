@@ -59,7 +59,7 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
           alt={name}
         />
       </figure>
-      <div className="pl-8 flex-grow">
+      <div className="mx-8 flex-grow">
         <h2 className="text-lg lg:text-2xl font-bold mt-3">
           Title:  
           <span className="text-lg font-semibold break-words">  {name}</span>
