@@ -35,11 +35,15 @@ const Newsletter = () => {
           backgroundPosition: "center",
         }}
       >
- {/* Overlay for background image */}
- <div className="absolute inset-0 rounded-2xl bg-black opacity-60 z-0"></div>
+        {/* Overlay for background image */}
+        <div className="absolute inset-0 rounded-2xl bg-black opacity-60 z-0"></div>
 
         {/* Form Content */}
-        <div className={"lg:w-1/2 mx-auto text-center  py-12 px-6 opacity-90 text-white"}>
+        <div
+          className={
+            "lg:w-1/2 mx-auto text-center  py-12 px-6 opacity-90 text-white"
+          }
+        >
           <h2 className="text-4xl font-semibold mb-6 leading-tight">
             Get the Latest Movie News and Offers!
           </h2>

@@ -39,7 +39,7 @@ const AboutUs = () => {
               src={about}
               referrerPolicy="no-referrer"
               alt="Cinematic Experience"
-              className="w-full lg:h-80 rounded-xl shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="w-full lg:h-80 rounded-xl shadow-xl "
             />
           </div>
         </div>
@@ -51,8 +51,8 @@ const AboutUs = () => {
           </h2>
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12`}>
             {/* Feature 1 */}
-            <div className={`flex flex-col items-center shadow-2xl rounded-lg 
-                p-8 transform hover:scale-105 transition-all duration-300
+            <div className={`flex flex-col items-center shadow-2xl shadow-primary 
+            rounded-xl  p-8 
                  ${isToggled ? 
                  "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"}`}>
               <i className="text-5xl mb-4">📺</i>
@@ -65,8 +65,9 @@ const AboutUs = () => {
               </p>
             </div>
             {/* Feature 2 */}
-            <div className={`flex flex-col items-center shadow-2xl rounded-lg p-8 
-                transform hover:scale-105 transition-all duration-300
+            <div className={`flex flex-col items-center shadow-2xl shadow-primary 
+             p-8 
+                
                  ${isToggled ?
                   "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"}`}>
               <i className="text-5xl mb-4">🔍</i>
@@ -79,7 +80,8 @@ const AboutUs = () => {
               </p>
             </div>
             {/* Feature 3 */}
-            <div className={`flex flex-col items-center shadow-2xl rounded-lg p-8 
+            <div className={`flex flex-col items-center shadow-2xl shadow-primary rounded-xl
+             p-8 
                 transform hover:scale-105 transition-all duration-300 
                 ${isToggled ? 
                 "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"}`}>
@@ -100,10 +102,9 @@ const AboutUs = () => {
           <h2 className="text-4xl font-semibold mb-8">
             Our Mission & Vision
           </h2>
-          <div className="lg:flex justify-between items-center space-y-10 lg:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-5">
             {/* Mission */}
-            <div className={`lg:w-1/2 p-6 shadow-2xl rounded-lg transform hover:scale-105
-                 transition-all duration-300 
+            <div className={`md:w-1/2 p-6 shadow-2xl  shadow-primary rounded-xl 
                  ${isToggled ?
                   "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"}`}>
               <h3 className="text-2xl font-semibold mb-4">
@@ -116,8 +117,7 @@ const AboutUs = () => {
               </p>
             </div>
             {/* Vision */}
-            <div className={`lg:w-1/2 p-6 shadow-2xl rounded-lg transform hover:scale-105 
-                transition-all duration-300 
+            <div className={`md:w-1/2 p-6 shadow-2xl shadow-primary rounded-xl 
                 ${isToggled ? 
                 "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"}`}>
               <h3 className="text-2xl font-semibold mb-4">

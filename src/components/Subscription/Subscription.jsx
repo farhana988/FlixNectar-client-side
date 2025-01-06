@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../../provider/ThemeProvider";
 import Heading from "../Shared/Heading";
+import { Link } from "react-router-dom";
 
 const Subscription = () => {
   const { isToggled } = useContext(ThemeContext);
@@ -80,7 +81,7 @@ const Subscription = () => {
             <button    className="mr-7 lg:mr-0 btn  text-white lg:text-xl mt-5
           btn-xs md:btn-sm lg:btn-md bg-primary ring-2 ring-offset-4 ring-primary"
         >
-                Contact Support</button>
+              <Link to='/contact'>Contact Support</Link>  </button>
           </div>
         </div>
       </div>

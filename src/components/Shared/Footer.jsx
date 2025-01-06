@@ -11,7 +11,7 @@ const Footer = () => {
           <nav>
             <div className=" w-full md:w-60 lg:w-96">
             <h4 className={`text-2xl font-bold active ${isToggled ? "text-primary" : "text-ivory"}`}>{/* Change text color */}
-            About Us
+            FlixNectar
             </h4>
             <p className={`${isToggled ? "text-darkSlate opacity-70" : "text-ivory opacity-50"}`}>
               At FlixNectar, we bring the world of cinema to you. Discover, explore, 

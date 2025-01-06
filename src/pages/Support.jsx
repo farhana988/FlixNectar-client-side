@@ -16,10 +16,10 @@ const Support = () => {
           }
         ></Heading>
 
-        <div className="lg:flex gap-6 justify-between space-y-10 lg:space-y-0 mb-16">
+        <div className="flex flex-col lg:flex-row gap-6 justify-between mb-16">
           {/* FAQ Section  */}
           <div
-            className={`lg:w-1/2 p-8 shadow-2xl rounded-lg  ${
+            className={`lg:w-1/2 p-8 shadow-2xl shadow-primary rounded-xl  ${
               isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
             }`}
           >
@@ -28,7 +28,6 @@ const Support = () => {
             </h3>
             <div className="space-y-6">
               {/* acc 1 */}
-
               <div className={`collapse collapse-arrow ${
                     isToggled
                       ? "bg-base-200 text-darkSlate" 
@@ -49,7 +48,6 @@ const Support = () => {
               </div>
 
               {/* acc 2 */}
-
               <div className={`collapse collapse-arrow ${
                     isToggled
                       ? "bg-base-200 text-darkSlate" 
@@ -69,7 +67,6 @@ const Support = () => {
               </div>
 
               {/* acc 3 */}
-
               <div className={`collapse collapse-arrow ${
                     isToggled
                       ? "bg-base-200 text-darkSlate" 
@@ -93,7 +90,7 @@ const Support = () => {
 
           {/* Troubleshooting Section with Toggle */}
           <div
-            className={`lg:w-1/2 p-8 shadow-2xl rounded-lg   ${
+            className={`lg:w-1/2 p-8 shadow-2xl shadow-primary rounded-xl   ${
               isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
             }`}
           >
@@ -141,7 +138,6 @@ const Support = () => {
               </div>
 
               {/* acc 3 */}
-
               <div className={`collapse collapse-arrow ${
                     isToggled
                       ? "bg-base-200 text-darkSlate" 
