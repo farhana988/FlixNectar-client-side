@@ -3,56 +3,82 @@
 
 import { Link } from "react-router-dom";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../provider/ThemeProvider";
 
 const MovieCard = ({ movie }) => {
-  const { _id, photo, name, genre, duration, releaseYear, rating } = movie;
+  const { _id, photo, name, genre, duration, rating } = movie;
   const validRating =
     typeof rating === "number" && !isNaN(rating) ? Math.floor(rating) : 0;
   const { isToggled } = useContext(ThemeContext);
 
+  // Convert duration to hours, minutes, and seconds
+  const hours = Math.floor(duration / 60);
+  const minutes = Math.floor(duration % 60);
+  const formattedDuration = `${hours > 0 ? `${hours}h ` : ""}${
+    minutes > 0 ? `${minutes}m` : ""
+  }`;
+
+  // title length adjust
+  const [titleLength, setTitleLength] = useState(20);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setTitleLength(10);
+      } else {
+        setTitleLength(20);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
+
   return (
     <div>
       <div
-        className={`card card-compact h-[480px] flex flex-col justify-between shadow-xl shadow-primary  ${
-          isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
-        }`}
+        className={`card card-compact h-[205px] md:h-[255px] lg:h-[330px] flex flex-col justify-between shadow-xl
+           shadow-primary  ${
+             isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
+           }`}
       >
+        {/* card image */}
         <figure>
           <img
-            className="w-10/12 h-40 rounded-xl mt-7"
+            className="w-full h-24 md:h-32 lg:h-44  "
             src={photo}
             alt={name}
           />
         </figure>
-        <div className="mx-7 flex-grow">
-          <h2 className="text-lg lg:text-2xl font-bold mt-3">
-            Title:  
-            <span className="text-lg font-semibold break-words">  {name}</span>
+        {/* card text */}
+        <div className="mx-5 relative">
+          {/* title */}
+          <h2
+            className="text-sm md:text-base lg:text-xl font-bold mt-3"
+            title={name}
+          >
+            {name?.substring(0, titleLength)}
           </h2>
 
-          <p className="text-base ">
-            <span className="font-semibold text-sm lg:font-bold lg:text-lg">
-              Genre:
-            </span> {genre}
-          </p>
-          
-          <p className="text-base ">
-            <span className="font-semibold text-sm lg:font-bold lg:text-lg">
-              Duration:
-            </span> {duration} min
+          {/* Genre */}
+          <p className="text-xs md:text-sm lg:text-base " title={genre}>
+            {genre?.substring(0, 20)}
           </p>
 
-          <p className="text-base ">
-            <span className="font-semibold text-sm lg:font-bold lg:text-lg">
-              Release Year:
-            </span>{" "}
-            {releaseYear}
-          </p>
+          {/* duration */}
+          <div
+            className="badge lg:badge-lg  badge-outline bg-primary 
+           text-white absolute -top-20 md:-top-28 lg:-top-40 -right-2 "
+          >
+            {formattedDuration}
+          </div>
 
-          <div className="flex items-center font-semibold text-sm lg:font-bold lg:text-lg">
-            <span className="mr-2">Rating:</span> 
+          {/* rating */}
+          <div className="flex items-center">
             {[...Array(validRating)].map((_, index) => (
               <svg
                 key={index}
@@ -72,9 +98,9 @@ const MovieCard = ({ movie }) => {
           </div>
         </div>
 
-
-        <div className="card-actions justify-end pr-7 py-6 mt-auto">
-          <button className="btn bg-primary text-white lg:text-xl">
+        {/* btn */}
+        <div className="card-actions justify-end pr-3 lg:pr-7 pb-3 lg:pb-6 mt-auto">
+          <button className="btn btn-xs md:btn-sm bg-primary text-white lg:text-xl">
             <Link to={`/details/${_id}`}> See Details</Link>
           </button>
         </div>

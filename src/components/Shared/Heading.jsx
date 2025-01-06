@@ -8,7 +8,7 @@ import { ThemeContext } from "../../provider/ThemeProvider";
 const Heading = ({ title, subtitle }) => {
   const { isToggled } = useContext(ThemeContext);
     return (
-        <div className='flex flex-col w-full justify-center items-center my-12
+        <div className='flex flex-col w-full justify-center items-center my-6 lg:my-8
         '>
        <h1
         className={`text-3xl md:text-5xl lg:text-7xl font-bold mb-4 
