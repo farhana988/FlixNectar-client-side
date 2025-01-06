@@ -19,7 +19,6 @@ const MovieCard = ({ movie }) => {
     minutes > 0 ? `${minutes}m` : ""
   }`;
 
-
   return (
     <div>
       <div

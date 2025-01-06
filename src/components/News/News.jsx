@@ -41,7 +41,7 @@ const News = () => {
       ></Heading>
 
       <section
-        className="flex flex-col-reverse lg:flex-row justify-between gap-10 lg:gap-20 
+        className="flex flex-col-reverse lg:flex-row justify-between gap-10 lg:gap-0 
       px-5 lg:px-0  "
       >
         {/* card */}
@@ -58,7 +58,7 @@ const News = () => {
             {selectedCategory === "behindTheScenes" && "Behind the Scenes"}
           </h2>
           {/* card section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 ">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 ">
             {categoryArticles.map((item) => (
               <NewsCard key={item.id} item={item}
               isToggled={isToggled}></NewsCard>

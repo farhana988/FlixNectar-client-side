@@ -7,8 +7,8 @@ import { ThemeContext } from "../../provider/ThemeProvider";
 
 const UpcomingCard = ({ movie }) => {
   const { isToggled } = useContext(ThemeContext);
-
   const { posterImage, title, releaseDate, description, trailerLink } = movie;
+  
   return (
     <div >
       <div
