@@ -68,13 +68,15 @@ const News = () => {
         {/* ---------------------------------------------------------------------------------- */}
 
         {/* Category Buttons */}
-        <div className="text-center flex flex-col gap-6 lg:gap-10 lg:mt-20">
+        <div className="text-center items-center justify-center flex 
+        lg:flex-col md:gap-0 lg:gap-10 lg:mt-20">
           <section>
             {/* movie news */}
             <button
-              className={`btn btn-wide  ${
+              className={`w-32 lg:w-44 h-6 lg:h-10 text-xs lg:text-base  rounded-2xl  ${
                 selectedCategory === "movieNews"
-                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary 
+                   lg:text-lg`
                   : isToggled
                   ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
                   : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"
@@ -85,9 +87,10 @@ const News = () => {
             </button>
             {/* interview */}
             <button
-              className={`btn btn-wide mt-6 md:mt-0 lg:mt-10 ${
+              className={`w-32 lg:w-44 h-6 lg:h-10 text-xs lg:text-base rounded-2xl mt-6 md:mt-0 lg:mt-10 ${
                 selectedCategory === "interviews"
-                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary 
+                   lg:text-lg`
                   : isToggled
                   ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
                   : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"
@@ -100,9 +103,10 @@ const News = () => {
           <section>
             {/* film review */}
             <button
-              className={`btn btn-wide ${
+              className={`w-32 lg:w-44 h-6 lg:h-10  text-xs lg:text-base rounded-2xl ${
                 selectedCategory === "filmReviews"
-                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary 
+                   lg:text-lg`
                   : isToggled
                   ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
                   : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"
@@ -113,9 +117,10 @@ const News = () => {
             </button>
             {/* behind the scene */}
             <button
-              className={`btn btn-wide mt-6 md:mt-0 lg:mt-10 ${
+              className={`w-32 lg:w-44 h-6 lg:h-10  text-xs lg:text-base rounded-2xl mt-6 md:mt-0 lg:mt-10 ${
                 selectedCategory === "behindTheScenes"
-                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary lg:text-xl`
+                  ? `bg-primary text-white ring-2 ring-offset-4 ring-primary 
+                   lg:text-lg`
                   : isToggled
                   ? "bg-gray-300 text-darkSlate hover:bg-gray-100"
                   : "bg-[#5b5d5f88] text-ivory hover:bg-gray-600"

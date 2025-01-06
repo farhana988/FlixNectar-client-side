@@ -75,7 +75,7 @@ const Navbar = () => {
       )}
 
       {/* my Added movies */}
-      {user && (
+      {/* {user && (
         <NavLink
           to="/myAddedMovies"
           className={({ isActive }) =>
@@ -94,7 +94,7 @@ const Navbar = () => {
         >
           <i>My Added Movies </i>
         </NavLink>
-      )}
+      )} */}
 
       {/* my favorites */}
       {user && (
@@ -180,7 +180,7 @@ const Navbar = () => {
 
       {/*  Support  */}
       <NavLink
-        to="/support "
+        to="/support"
         className={({ isActive }) =>
           `${
             isActive

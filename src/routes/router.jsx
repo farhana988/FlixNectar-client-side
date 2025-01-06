@@ -13,6 +13,9 @@ import Update from "../pages/MovieDetails/Update";
 import WatchParty from "../pages/WatchParty";
 import AllMovies from "../pages/AllMovies/AllMovies";
 import AllUpcoming from "../components/UpcomingReleases/AllUpcoming";
+import AboutUs from "../pages/AboutUs";
+import Contact from "../pages/Contact";
+import Support from "../pages/Support";
 
 
 const router = createBrowserRouter([
@@ -54,6 +57,21 @@ const router = createBrowserRouter([
         path: "/watch",
         element: <WatchParty></WatchParty>,
         loader: () => fetch("./watch.json"),
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>,
+     
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+     
+      },
+      {
+        path: "/support",
+        element: <Support></Support>,
+     
       },
       {
         path: "/details/:id",

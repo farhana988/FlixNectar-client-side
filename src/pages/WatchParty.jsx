@@ -46,6 +46,7 @@ const WatchParty = () => {
                 <figure>
                   <img
                     src={movie.image}
+                    referrerPolicy="no-referrer"
                     alt={movie.title}
                     className=" w-96 md:w-[450px] lg:w-[600px] h-72 object-cover rounded-xl"
                   />
