@@ -1,11 +1,10 @@
 // import React from 'react';
 
 import { useLoaderData } from "react-router-dom";
-
-import FavoriteCard from "../components/FavoriteCard";
-import Heading from "../components/Heading";
 import { useState } from "react";
 import { TfiFaceSad } from "react-icons/tfi";
+import Heading from "../../components/Shared/Heading";
+import FavoriteCard from "./FavoriteCard";
 
 const MyFavorites = () => {
   const favorites = useLoaderData();
@@ -33,8 +32,10 @@ const MyFavorites = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col justify-center items-center gap-5 my-40 active
-        text-xl md:text-2xl lg:text-4xl font-bold">
+        <div
+          className="flex flex-col justify-center items-center gap-5 my-40 active
+        text-xl md:text-2xl lg:text-4xl font-bold"
+        >
           <TfiFaceSad className="text-9xl " />
           <p className="opacity-50">No favorites found.</p>
           <p className="opacity-50">Start adding some movies to your list!</p>

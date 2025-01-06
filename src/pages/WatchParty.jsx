@@ -2,8 +2,9 @@
 
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import Heading from "../components/Heading";
+
 import { ThemeContext } from "../provider/ThemeProvider";
+import Heading from "../components/Shared/Heading";
 
 const WatchParty = () => {
   const movies = useLoaderData();

@@ -1,16 +1,15 @@
 import { useContext } from "react";
-import { ThemeContext } from "../provider/ThemeProvider";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 
 const Theme = () => {
   const { isToggled, handleToggle } = useContext(ThemeContext); 
 
   return (
-    <div className="flex justify-end items-center relative">
+    <div className="flex justify-end items-center">
       <button
         onClick={handleToggle}
-        className={`pt-2 px-2 md:pt-3 md:px-2 lg:px-2 lg:pt-3 rounded-full shadow-lg hover:shadow-2xl 
-          focus:outline-none mr-10 mt-4 absolute top-1 z-10 
+        className={`pt-2 px-2 md:pt-3 md:px-2 lg:px-2 lg:pt-3 rounded-full shadow-lg hover:shadow-2xl z-10 
           ${isToggled ?  "bg-black text-white": "bg-white text-black"}`}
       >
         <label className="swap swap-rotate">
@@ -38,6 +37,7 @@ const Theme = () => {
           </svg>
         </label>
       </button>
+
     </div>
   );
 };

@@ -2,11 +2,11 @@
 
 import { useLoaderData } from "react-router-dom";
 
-import Heading from "../components/Heading";
-import MovieCard from "../components/movieCard";
 import { useContext, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { ThemeContext } from "../provider/ThemeProvider";
+import { ThemeContext } from "../../provider/ThemeProvider";
+import Heading from "../../components/Shared/Heading";
+import MovieCard from "./MovieCard";
 
 const AllMovies = () => {
   const data = useLoaderData();

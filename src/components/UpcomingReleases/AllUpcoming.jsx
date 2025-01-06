@@ -1,8 +1,10 @@
 // import React from 'react';
 
 import { useEffect, useState } from "react";
-import Heading from "../components/Heading";
-import UpcomingCard from "../components/UpcomingCard";
+
+import UpcomingCard from "./UpcomingCard";
+import Heading from "../Shared/Heading";
+
 
 
 

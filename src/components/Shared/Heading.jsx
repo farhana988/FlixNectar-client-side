@@ -2,7 +2,8 @@
 // import React from 'react';
 
 import { useContext } from "react";
-import { ThemeContext } from "../provider/ThemeProvider";
+import { ThemeContext } from "../../provider/ThemeProvider";
+
 
 const Heading = ({ title, subtitle }) => {
   const { isToggled } = useContext(ThemeContext);

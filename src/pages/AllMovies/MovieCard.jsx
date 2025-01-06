@@ -2,8 +2,9 @@
 // import React from 'react';
 
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../provider/ThemeProvider";
+
 import { useContext } from "react";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const MovieCard = ({ movie }) => {
   const { _id, photo, name, genre, duration, releaseYear, rating } = movie;

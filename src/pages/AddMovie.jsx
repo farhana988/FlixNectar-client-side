@@ -1,13 +1,12 @@
 // import React from 'react';
 
 import { useContext, useState } from "react";
-import Heading from "../components/Heading";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Rating } from "react-simple-star-rating";
-
 import Swal from "sweetalert2";
 import { ThemeContext } from "../provider/ThemeProvider";
+import Heading from "../components/Shared/Heading";
 
 const AddMovie = () => {
   const { isToggled } = useContext(ThemeContext);

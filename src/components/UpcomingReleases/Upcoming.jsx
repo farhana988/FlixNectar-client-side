@@ -1,9 +1,8 @@
-// import React from 'react';
-
 import { useEffect, useState } from "react";
-import Heading from "./Heading";
-import UpcomingCard from "./UpcomingCard";
 import { Link } from "react-router-dom";
+import Heading from "../Shared/Heading";
+import UpcomingCard from "./UpcomingCard";
+
 
 const Upcoming = () => {
   const [movies, setMovies] = useState([]);

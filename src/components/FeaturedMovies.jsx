@@ -1,8 +1,7 @@
-// import React from 'react';
-
 import { Link, useLoaderData } from "react-router-dom";
-import Heading from "./Heading";
-import MovieCard from "./movieCard";
+import Heading from "./Shared/Heading";
+import MovieCard from "../pages/AllMovies/MovieCard";
+
 
 const FeaturedMovies = () => {
   const movies = useLoaderData();

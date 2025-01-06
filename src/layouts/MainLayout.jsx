@@ -1,10 +1,9 @@
 // import React from 'react';
 
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Theme from "../components/Theme";
+import Navbar from "../components/Shared/Navbar";
 import Snowfall from "react-snowfall";
+import Footer from "../components/Shared/Footer";
 
 
 
@@ -13,7 +12,6 @@ const MainLayout = () => {
     <div className="h-full relative">
       <Navbar></Navbar>
       <Outlet></Outlet>
-      <Theme></Theme>
       <Footer></Footer>
 
       {/* Snowfall Component */}

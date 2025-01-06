@@ -2,8 +2,9 @@
 
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
-import { ThemeContext } from "../provider/ThemeProvider";
+import { AuthContext } from "../../provider/AuthProvider";
+import { ThemeContext } from "../../provider/ThemeProvider";
+import Theme from "./Theme";
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext);
@@ -157,6 +158,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-10">{links}</ul>
         </div>
         <div className="navbar-end ">
+          <Theme></Theme>
           {user?.email ? (
             <div className="flex gap-2 justify-center items-center">
               <div className="user-info relative ">
@@ -176,19 +178,16 @@ const Navbar = () => {
                 className="btn bg-primary mx-4 text-white   lg:text-xl"
                 onClick={handleSignOut}
               >
-                logout
+                {/* logout svg */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor"><path d="M13 4.009a1 1 0 1 0-2 0l-.003 8.003a1 1 0 0 0 2 0z"/><path d="M4 12.992c0-2.21.895-4.21 2.343-5.657l1.414 1.414a6 6 0 1 0 8.485 0l1.415-1.414A8 8 0 1 1 4 12.992"/></g></svg>
               </button>
             </div>
           ) : (
             <div>
               <NavLink to="/login">
-                <button className="btn bg-primary mr-4 text-white   lg:text-xl">
-                  Login
-                </button>
-              </NavLink>
-              <NavLink to="/register">
-                <button className="btn bg-primary mr-4 text-white   lg:text-xl">
-                  Register
+                <button className="btn bg-primary mr-4 font-bold text-white   lg:text-xl">
+                  {/* log in svg */}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor"><path d="M15.486 20h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4v2h4v12h-4z"/><path d="m10.158 17.385l-1.42-1.408l3.92-3.953H3.513a1 1 0 1 1 0-2h9.163l-3.98-3.947l1.408-1.42l6.391 6.337z"/></g></svg>
                 </button>
               </NavLink>
             </div>

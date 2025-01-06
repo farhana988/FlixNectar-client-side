@@ -1,12 +1,13 @@
 // import React from 'react';
 
 import { useLoaderData } from "react-router-dom";
-import Heading from "./Heading";
+
 import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Rating } from "react-simple-star-rating";
 import Swal from "sweetalert2";
-import { ThemeContext } from "../provider/ThemeProvider";
+import { ThemeContext } from "../../provider/ThemeProvider";
+import Heading from "../../components/Shared/Heading";
 
 const Update = () => {
   const { isToggled } = useContext(ThemeContext);
@@ -45,28 +46,29 @@ const Update = () => {
     }
   }, [movieData]);
 
-
-
-
-   const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
 
-  
     setErrors((prevErrors) => {
       const updatedErrors = { ...prevErrors };
 
       if (name === "photo" && isValidURL(value)) delete updatedErrors.photo;
       if (name === "name" && value.length >= 2) delete updatedErrors.name;
-      if (name === "duration" && !isNaN(value) && value > 60) delete updatedErrors.duration;
-      if (name === "summary" && value.length >= 10) delete updatedErrors.summary;
+      if (name === "duration" && !isNaN(value) && value > 60)
+        delete updatedErrors.duration;
+      if (name === "summary" && value.length >= 10)
+        delete updatedErrors.summary;
 
       return updatedErrors;
     });
   };
 
   const handleGenreChange = (e) => {
-    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
+    const selectedOptions = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
     setForm((prevForm) => ({ ...prevForm, genre: selectedOptions }));
 
     setErrors((prevErrors) => {
@@ -95,10 +97,6 @@ const Update = () => {
       return updatedErrors;
     });
   };
-
-
-
-
 
   const handleUpdate = (e) => {
     e.preventDefault();

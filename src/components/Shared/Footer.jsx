@@ -1,7 +1,7 @@
-// import React from 'react';
+
 
 import { useContext } from "react";
-import { ThemeContext } from "../provider/ThemeProvider";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const Footer = () => {
   const { isToggled } = useContext(ThemeContext);

@@ -2,8 +2,8 @@
 // import React from 'react';
 
 import Swal from "sweetalert2";
-import { ThemeContext } from "../provider/ThemeProvider";
 import { useContext } from "react";
+import { ThemeContext } from "../../provider/ThemeProvider";
 
 const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
   const { _id, photo, name, genre, duration, releaseYear, rating,  } = favorite;
