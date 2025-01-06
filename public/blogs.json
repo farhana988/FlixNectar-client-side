@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "title": "Top 10 Movies of 2024",
+      "excerpt": "Discover the top 10 movies that made a splash in 2024, featuring incredible performances and unforgettable stories.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF8tgD3CHXgbwwsf7XUCpk4Lmnr8omPE0vkA&s",
+      "link": "/blogs/top-10-movies-of-2024"
+    },
+    {
+      "id": 2,
+      "title": "How Streaming is Changing Cinema",
+      "excerpt": "The rise of streaming platforms has revolutionized how we watch movies. Here's how it's impacting the film industry.",
+      "image": "https://blog.shortfundly.com/wp-content/uploads/2023/08/The-Streaming-Revolution-How-Online-Platforms-Are-Changing-Film-Consumption.jpg",
+      "link": "/blogs/streaming-and-cinema"
+    },
+    {
+      "id": 3,
+      "title": "Behind the Scenes: Making of 'FlixNectar'",
+      "excerpt": "Ever wondered what goes into creating a top-tier streaming platform? Get a glimpse behind the scenes of FlixNectar.",
+      "image": "https://www.shutterstock.com/image-photo/behind-scenes-making-film-video-600nw-1042050784.jpg",
+      "link": "/blogs/behind-the-scenes"
+    },
+    {
+      "id": 4,
+      "title": "The Future of Movie Theaters",
+      "excerpt": "Despite the rise of streaming, movie theaters are still going strong. What does the future hold for these iconic venues?",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTatvKWAfY0h8DZeoZ9aWXxaN8H6W2hehROw&s",
+      "link": "/blogs/future-of-movie-theaters"
+    }
+  ]
+  

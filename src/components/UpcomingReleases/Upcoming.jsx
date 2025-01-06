@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Heading from "../Shared/Heading";
 import UpcomingCard from "./UpcomingCard";
 
-
 const Upcoming = () => {
   const [movies, setMovies] = useState([]);
 

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Basic",
+    "price": 9.99,
+    "description": "Perfect for casual movie watchers who want access to a wide selection of movies.",
+    "features": [
+      "Access to a wide selection of movies",
+      "Standard definition (SD) quality",
+      "1 device streaming at a time"
+    ],
+    "buttonText": "Subscribe Now"
+  },
+  {
+    "id": 2,
+    "name": "Standard",
+    "price": 14.99,
+    "description": "For movie lovers who want to stream in HD quality with multiple devices.",
+    "features": [
+      "HD quality streaming",
+      "Stream on 2 devices simultaneously",
+      "Access to all movie genres"
+    ],
+    "buttonText": "Subscribe Now"
+  },
+  {
+    "id": 3,
+    "name": "Premium",
+    "price": 19.99,
+    "description": "Ideal for movie enthusiasts who want the best experience with 4K resolution and more features.",
+    "features": [
+      "4K Ultra HD streaming",
+      "Stream on 4 devices simultaneously",
+      "Exclusive content and early access"
+    ],
+    "buttonText": "Subscribe Now"
+  },
+  {
+    "id": 4,
+    "name": "Ultimate",
+    "price": 29.99,
+    "description": "All the benefits of Premium with additional features like offline downloads and personalized recommendations.",
+    "features": [
+      "4K Ultra HD streaming",
+      "Stream on 6 devices simultaneously",
+      "Offline downloads",
+      "Personalized recommendations"
+    ],
+    "buttonText": "Subscribe Now"
+  }
+]

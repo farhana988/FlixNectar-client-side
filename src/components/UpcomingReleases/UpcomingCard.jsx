@@ -4,15 +4,15 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../provider/ThemeProvider";
 
-
 const UpcomingCard = ({ movie }) => {
   const { isToggled } = useContext(ThemeContext);
   const { posterImage, title, releaseDate, description, trailerLink } = movie;
-  
+
   return (
     <div >
       <div
-        className={`card card-compact h-[205px] md:h-[255px] lg:h-[330px]  shadow-xl shadow-primary ${
+        className={`card card-compact h-[205px] md:h-[255px] lg:h-[330px]  shadow-xl
+           shadow-primary ${
           isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
         }`}
       >

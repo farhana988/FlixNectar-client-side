@@ -1,0 +1,108 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "photo": "https://randomuser.me/api/portraits/men/1.jpg",
+      "review": "FlixNectar is fantastic! The variety of movies is unmatched, and the streaming quality is superb. I can watch movies anywhere, anytime!",
+      "designation": "Verified Subscriber"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "photo": "https://randomuser.me/api/portraits/women/2.jpg",
+      "review": "I absolutely love the Premium plan! The 4K streaming is amazing. It’s a great service for movie buffs like me!",
+      "designation": "Verified Subscriber"
+    },
+    {
+      "id": 3,
+      "name": "Michael Lee",
+      "photo": "https://randomuser.me/api/portraits/men/2.jpg",
+      "review": "The ease of use and excellent customer support makes FlixNectar my go-to streaming service. Highly recommended!",
+      "designation": "Verified Subscriber"
+    },
+    {
+      "id": 4,
+      "name": "Emily Brown",
+      "photo": "https://randomuser.me/api/portraits/women/3.jpg",
+      "review": "I’ve been using FlixNectar for months, and I’m always impressed by the selection of movies and shows. Their interface is super user-friendly.",
+      "designation": "Loyal Member"
+    },
+    {
+      "id": 5,
+      "name": "David Johnson",
+      "photo": "https://randomuser.me/api/portraits/men/3.jpg",
+      "review": "FlixNectar has revolutionized my movie watching experience. The streaming quality is fantastic, and I love how I can watch on multiple devices.",
+      "designation": "Premium Member"
+    },
+    {
+      "id": 6,
+      "name": "Sophia Turner",
+      "photo": "https://randomuser.me/api/portraits/women/4.jpg",
+      "review": "The customer support is exceptional! I had an issue with my account, and they solved it quickly. Highly recommend!",
+      "designation": "Verified Subscriber"
+    },
+    {
+      "id": 7,
+      "name": "Chris Green",
+      "photo": "https://randomuser.me/api/portraits/men/4.jpg",
+      "review": "I’m so happy I switched to FlixNectar. The variety of genres, the seamless streaming experience, and the new releases are always on point.",
+      "designation": "VIP Member"
+    },
+    {
+      "id": 8,
+      "name": "Olivia Harris",
+      "photo": "https://randomuser.me/api/portraits/women/5.jpg",
+      "review": "FlixNectar has an amazing range of classic films and TV shows. It’s my favorite platform for entertainment. Excellent value for money!",
+      "designation": "Long-Time Subscriber"
+    },
+    {
+      "id": 9,
+      "name": "James Williams",
+      "photo": "https://randomuser.me/api/portraits/men/5.jpg",
+      "review": "I can’t imagine my life without FlixNectar! The app works seamlessly across all devices, and there’s always something new to watch.",
+      "designation": "Dedicated Subscriber"
+    },
+    {
+      "id": 10,
+      "name": "Ava Wilson",
+      "photo": "https://randomuser.me/api/portraits/women/6.jpg",
+      "review": "The family-friendly content on FlixNectar is a game-changer. My kids love the shows, and I can rest easy knowing the content is appropriate.",
+      "designation": "Family Plan Subscriber"
+    },
+    {
+      "id": 11,
+      "name": "Lucas Taylor",
+      "photo": "https://randomuser.me/api/portraits/men/6.jpg",
+      "review": "The subscription is worth every penny. Not only are the movies high quality, but the service is fast, and I’m never interrupted by ads.",
+      "designation": "Premium Member"
+    },
+    {
+      "id": 12,
+      "name": "Charlotte Scott",
+      "photo": "https://randomuser.me/api/portraits/women/7.jpg",
+      "review": "FlixNectar offers amazing deals and has an incredibly vast library. It’s my go-to platform for binge-watching series on weekends!",
+      "designation": "Binge-Watcher"
+    },
+    {
+      "id": 13,
+      "name": "William Clark",
+      "photo": "https://randomuser.me/api/portraits/men/7.jpg",
+      "review": "After trying a few streaming platforms, FlixNectar is hands down the best. Their interface is smooth, and I love the recommendations they offer.",
+      "designation": "Tech Enthusiast"
+    },
+    {
+      "id": 14,
+      "name": "Isabella Lee",
+      "photo": "https://randomuser.me/api/portraits/women/8.jpg",
+      "review": "FlixNectar is my favorite streaming platform. The original shows they offer are top-notch, and the variety of content keeps me coming back.",
+      "designation": "Content Lover"
+    },
+    {
+      "id": 15,
+      "name": "Ethan King",
+      "photo": "https://randomuser.me/api/portraits/men/8.jpg",
+      "review": "Great value, awesome selection, and no buffering! I’ve been a subscriber for over a year and I’m still impressed by the consistent quality.",
+      "designation": "Satisfied Subscriber"
+    }
+  ]
+  
