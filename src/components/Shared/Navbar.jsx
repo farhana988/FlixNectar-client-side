@@ -260,6 +260,7 @@ const Navbar = () => {
               <div className="user-info relative ">
                 <img
                   src={user.photoURL}
+                referrerPolicy="no-referrer"
                   alt=""
                   className="ring-2 ring-offset-4 ring-primary w-7 h-7 
                   lg:w-10 lg:h-10 rounded-full"

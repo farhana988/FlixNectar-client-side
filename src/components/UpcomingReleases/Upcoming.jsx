@@ -25,8 +25,8 @@ const Upcoming = () => {
         }
       ></Heading>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5 lg:px-0">
-        {movies.slice(0, 3).map((movie) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 lg:px-0">
+        {movies.slice(0, 4).map((movie) => (
           <UpcomingCard key={movie.id} movie={movie} />
         ))}
       </div>

@@ -3,7 +3,7 @@
 
 import { Link } from "react-router-dom";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../provider/ThemeProvider";
 
 const MovieCard = ({ movie }) => {
@@ -19,24 +19,6 @@ const MovieCard = ({ movie }) => {
     minutes > 0 ? `${minutes}m` : ""
   }`;
 
-  // title length adjust
-  const [titleLength, setTitleLength] = useState(20);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setTitleLength(10);
-      } else {
-        setTitleLength(20);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  
 
   return (
     <div>
@@ -50,18 +32,19 @@ const MovieCard = ({ movie }) => {
         <figure>
           <img
             className="w-full h-24 md:h-32 lg:h-44  "
+            referrerPolicy="no-referrer"
             src={photo}
             alt={name}
           />
         </figure>
         {/* card text */}
-        <div className="mx-5 relative">
+        <div className="mx-3 lg:mx-5 relative">
           {/* title */}
           <h2
             className="text-sm md:text-base lg:text-xl font-bold mt-3"
             title={name}
           >
-            {name?.substring(0, titleLength)}
+            {name?.substring(0, 20)}
           </h2>
 
           {/* Genre */}

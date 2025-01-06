@@ -12,53 +12,42 @@ const UpcomingCard = ({ movie }) => {
   return (
     <div >
       <div
-        className={`card card-compact h-[450px] shadow-xl shadow-primary ${
+        className={`card card-compact h-[205px] md:h-[255px] lg:h-[330px]  shadow-xl shadow-primary ${
           isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
         }`}
       >
         <figure>
           <img
-            className="  w-10/12 h-40 rounded-xl mt-7"
+            className="w-full h-24 md:h-32 lg:h-44  "
+            referrerPolicy="no-referrer"
             src={posterImage}
             alt={title}
           />
         </figure>
-        <div className="px-8 flex flex-col flex-grow gap-1">
-          <h2
-            className="text-lg  lg:text-2xl font-bold mt-3
-          
-          "
+        <div className="mx-3 lg:mx-5  flex flex-col flex-grow gap-1">
+           {/* title */}
+           <h2
+            className="text-sm md:text-base lg:text-xl font-bold mt-3"
+            title={title}
           >
-            Title:
-            <span> {title}</span>
+            {title?.substring(0, 20)}
           </h2>
-          <p className="text-base ">
-            <span
-              className=" font-semibold text-sm lg:font-bold lg:text-lg
-            
-            "
-            >
-              Release Date:
-            </span>
+          {/* release date */}
+          <p className="text-xs md:text-sm lg:text-base ">
+           
             {releaseDate}
           </p>
-          <p className="text-base flex-grow">
-            <span
-              className="font-semibold text-sm lg:font-bold lg:text-lg
-            
-            "
-            >
-              Description:
-            </span>
-            {description}
+          {/* description */}
+          <p className="text-xs md:text-sm lg:text-base flex-grow opacity-70">
+            {description?.substring(0,50)}
           </p>
 
-         <div className="pb-5">
+         <div className="pb-3 lg:pb-5">
          <a
             href={trailerLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline "
+            className="text-blue-600 hover:underline text-xs md:text-sm lg:text-base"
           >
             Watch Trailer
           </a>
