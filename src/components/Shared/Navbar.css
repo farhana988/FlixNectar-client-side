@@ -1,0 +1,7 @@
+/* Larger screen size (lg breakpoint) */
+@media (min-width: 1024px) {
+    .log-svg {
+      width: 36px;  /* Increase size to 36px */
+      height: 36px; /* Increase size to 36px */
+    }
+  }

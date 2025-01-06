@@ -9,8 +9,8 @@ const Theme = () => {
     <div className="flex justify-end items-center">
       <button
         onClick={handleToggle}
-        className={`pt-2 px-2 md:pt-3 md:px-2 lg:px-2 lg:pt-3 rounded-full shadow-lg hover:shadow-2xl z-10 
-          ${isToggled ?  "bg-black text-white": "bg-white text-black"}`}
+        className={`px-2 pt-2 pb-1 rounded-full 
+          `}
       >
         <label className="swap swap-rotate">
           <input
@@ -21,7 +21,7 @@ const Theme = () => {
           />
           {/* Sun icon */}
           <svg
-            className="swap-off h-5 w-5 md:h-5 md:w-7 lg:h-7 lg:w-9 fill-current"
+            className="swap-off h-6 w-7 md:h-7 md:w-8 lg:h-8 lg:w-9  fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -29,7 +29,7 @@ const Theme = () => {
           </svg>
           {/* Moon icon */}
           <svg
-            className="swap-on h-5 w-5 md:h-6 md:w-7 lg:h-8 lg:w-9 fill-current"
+            className="swap-on  h-6 w-7 md:h-7 md:w-8  lg:h-8 lg:w-9 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
