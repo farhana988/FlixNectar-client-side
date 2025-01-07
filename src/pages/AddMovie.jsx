@@ -1,4 +1,3 @@
-// import React from 'react';
 
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
@@ -7,9 +6,11 @@ import { Rating } from "react-simple-star-rating";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../provider/ThemeProvider";
 import Heading from "../components/Shared/Heading";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddMovie = () => {
   const { isToggled } = useContext(ThemeContext);
+  const {user} = useContext(AuthContext)
 
   const [form, setForm] = useState({
     photo: "",
@@ -110,6 +111,7 @@ const AddMovie = () => {
       releaseYear: selectedDate.getFullYear(),
       rating,
       genre: form.genre.join(", "),
+      email: user?.email
     };
 
 
@@ -171,7 +173,7 @@ const AddMovie = () => {
                 </span>
               </label>
               <input
-                type="text"
+                type="url"
                 name="photo"
                 placeholder="Movie Poster URL"
               value={form.photo}
@@ -260,7 +262,7 @@ const AddMovie = () => {
                 </span>
               </label>
               <input
-                type="text"
+                type="number"
                 name="duration"
                 placeholder="Duration"
                 value={form.duration}

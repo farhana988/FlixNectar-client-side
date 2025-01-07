@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-// import React from 'react';
 
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { ThemeContext } from "../../provider/ThemeProvider";
+import { MdDelete } from "react-icons/md";
 
 const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
   const { _id, photo, name, genre, duration, releaseYear, rating,  } = favorite;
@@ -48,7 +48,7 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
   return (
     <div>
     <div
-      className={`card card-compact h-[480px] flex flex-col shadow-xl shadow-primary ${
+      className={`card card-compact h-[430px] flex flex-col shadow-xl shadow-primary ${
         isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
       }`}
     >
@@ -103,12 +103,12 @@ const FavoriteCard = ({ favorite, loadedFavorite, setLoadedFavorite }) => {
       </div>
   
   
-      <div className="card-actions justify-end pr-7 py-6 mt-auto"> 
+      <div className="card-actions justify-end pr-7 pb-6 mt-auto"> 
         <button
           onClick={() => handleDelete(_id)}
-          className="btn bg-primary text-white lg:text-xl"
+          className="text-xl lg:text-3xl"
         >
-          Delete Favorite
+           <MdDelete />
         </button>
       </div>
     </div>

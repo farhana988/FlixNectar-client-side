@@ -16,6 +16,7 @@ import AllUpcoming from "../components/UpcomingReleases/AllUpcoming";
 import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
 import Support from "../pages/Support";
+import MyAddedMovies from "../pages/MyAddedMovies/MyAddedMovies";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,16 @@ const router = createBrowserRouter([
             <AddMovie></AddMovie>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/myAddedMovies/:email",
+        element: (
+          <PrivateRoute>
+            <MyAddedMovies></MyAddedMovies>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://assi10-api.vercel.app/myAddedMovies/${params.email}`),
       },
       {
         path: "/myFavorites/:email",

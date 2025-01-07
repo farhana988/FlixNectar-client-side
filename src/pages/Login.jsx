@@ -6,13 +6,18 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 import { ThemeContext } from "../provider/ThemeProvider";
 import Swal from "sweetalert2";
+import login from "../assets/lottie/login.png";
+
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   const { isToggled } = useContext(ThemeContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const {register, handleSubmit, formState: { errors },} = useForm();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
     const { email, password } = data;
@@ -23,10 +28,10 @@ const Login = () => {
       })
       .catch(() => {
         Swal.fire({
-          icon: 'error',
-          title: 'Login Failed',
-          text: 'Something went wrong. Please try again!',
-          confirmButtonText: 'Try Again',
+          icon: "error",
+          title: "Login Failed",
+          text: "Something went wrong. Please try again!",
+          confirmButtonText: "Try Again",
         });
       });
   };
@@ -38,27 +43,30 @@ const Login = () => {
       })
       .catch(() => {
         Swal.fire({
-          icon: 'error',
-          title: 'Google Login Failed',
-          text: 'Something went wrong with Google login. Please try again!',
-          confirmButtonText: 'Try Again',
+          icon: "error",
+          title: "Google Login Failed",
+          text: "Something went wrong with Google login. Please try again!",
+          confirmButtonText: "Try Again",
         });
       });
   };
-
 
   return (
     <div>
       <div>
         <div className="hero py-32">
-          <div className="hero-content flex-col">
+          <div className="hero-content flex-col relative">
             <h2
               className={`text-3xl md:text-5xl lg:text-7xl font-bold mb-14 
-        ${isToggled ? "text-primary" : "text-ivory"} active`}
+                 ${isToggled ? "text-primary" : "text-ivory"} active`}
             >
               Login Form
             </h2>
-
+            {/* image */}
+            <img src={login} alt=""
+            className="absolute z-10 -left-16 md:-left-52 -top-14 md:-top-20 -rotate-12
+            w-52 md:w-fit" />
+            {/* login form */}
             <div
               className={`card w-full max-w-5xl shrink-0 shadow-2xl shadow-primary ${
                 isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"

@@ -1,20 +1,19 @@
 /* eslint-disable react/prop-types */
 // import React from 'react';
 
-import { Link } from "react-router-dom";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 const DetailsCard = ({
   movie,
   validRating,
   isToggled,
   toggleSummary,
-  handleDelete,
+
   handleAddTOFavorite,
   isExpanded,
   isFavorite,
 }) => {
-  const { _id, photo, name, genre, duration, releaseYear, summary } =
-    movie;
+  const { photo, name, genre, duration, releaseYear, summary } = movie;
   return (
     <div>
       <div
@@ -109,32 +108,25 @@ const DetailsCard = ({
           </div>
 
           {/* buttons */}
-          <div
-            className="card-actions flex-col md:flex-row lg:flex-row 
-          md:justify-around lg:justify-around 
-          gap-5 items-end  pr-4 md:pr-0 lg:pr-0 py-2 md:py-6 lg:py-6"
-          >
+
+          <div className="flex justify-end mr-7">
             <button
-              onClick={handleDelete}
-              className="btn bg-primary text-white lg:text-xl"
+              onClick={handleAddTOFavorite}
+              className={"text-2xl lg:text-4xl"}
+              disabled={isFavorite}
             >
-              Delete Movie
-            </button>
-
-            <div className="bg-white rounded-xl">
-              <button
-                onClick={handleAddTOFavorite}
-                className={"btn bg-primary text-white lg:text-xl"}
-                disabled={isFavorite}
-              >
-                {isFavorite ? "Added to Favorites" : "Add to Favorite"}
-              </button>
-            </div>
-
-            <button className="btn bg-primary text-white lg:text-xl">
-              <Link to={`/update/${_id}`}> Update Movie</Link>
+              {isFavorite ? (
+                <>
+                  <MdFavorite />
+                </>
+              ) : (
+                <>
+                  <MdFavoriteBorder />
+                </>
+              )}
             </button>
           </div>
+
         </div>
       </div>
     </div>

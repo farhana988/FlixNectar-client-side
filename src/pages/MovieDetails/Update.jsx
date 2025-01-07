@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
@@ -8,10 +8,13 @@ import { Rating } from "react-simple-star-rating";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../../provider/ThemeProvider";
 import Heading from "../../components/Shared/Heading";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Update = () => {
   const { isToggled } = useContext(ThemeContext);
+   const { user,  } = useContext(AuthContext);
   const movieData = useLoaderData();
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     photo: "",
@@ -152,6 +155,7 @@ const Update = () => {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          navigate(`/myAddedMovies/${user.email}`);
         }
       });
   };
