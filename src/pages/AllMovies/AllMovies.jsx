@@ -51,14 +51,18 @@ const AllMovies = () => {
             }`}
             required
           />
-          <FaSearch className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400" /> 
+          <FaSearch className="absolute left-6 top-1/2 transform -translate-y-1/2
+           text-gray-400" /> 
         </div>
+
         {/* sort */}
-        <div className="mb-5 ml-6 lg:ml-0">
+        <div className={`mb-5 ml-6 lg:ml-0   
+        active`}>
             <select
              
               onChange={(e) => setSort(e.target.value)}
-              className='border p-4 rounded-md'
+              className={` p-4 rounded-md ${isToggled ? "text-darkSlate bg-ivory" 
+        : "text-ivory bg-[#5b5d5f88]"}`}
               value={sort}
             >
               <option disabled selected value=''>Sort</option>
