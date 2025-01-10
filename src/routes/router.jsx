@@ -18,7 +18,6 @@ import Contact from "../pages/Contact";
 import Support from "../pages/Support";
 import MyAddedMovies from "../pages/MyAddedMovies/MyAddedMovies";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -70,19 +69,16 @@ const router = createBrowserRouter([
         loader: () => fetch("./watch.json"),
       },
       {
-        path: "/aboutUs",
+        path: "/about",
         element: <AboutUs></AboutUs>,
-     
       },
       {
         path: "/contact",
         element: <Contact></Contact>,
-     
       },
       {
         path: "/support",
         element: <Support></Support>,
-     
       },
       {
         path: "/details/:id",

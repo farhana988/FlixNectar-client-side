@@ -44,7 +44,7 @@ const Testimonials = () => {
       >
         {testimonials.map((testimonial) => (
           <SwiperSlide key={testimonial.id}>
-            <div className={`max-w-xs  shadow-xl shadow-primary rounded-xl p-3 lg:p-6 space-y-4
+            <div className={`max-w-xs    rounded-xl p-3 lg:p-6 space-y-4
             h-60 md:h-64 lg:h-80 ${
                 isToggled ? "bg-[#ffffff] text-darkSlate" : "bg-card text-ivory"
               }`}>

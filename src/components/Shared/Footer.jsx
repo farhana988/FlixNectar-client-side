@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import { ThemeContext } from "../../provider/ThemeProvider";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { isToggled } = useContext(ThemeContext);
@@ -25,18 +26,16 @@ const Footer = () => {
             <h4 className={`text-2xl font-bold active ${isToggled ? "text-primary" : "text-ivory"}`}>
               Quick Links
             </h4>
-            <a href="/privacy-policy" 
+            <Link to="/about" 
             className={`${isToggled ? "text-darkSlate opacity-70" : "text-ivory opacity-50"}`}>
-            Privacy Policy</a>
-            <a href="/terms"
+            About Us</Link>
+            <Link to="/support"
             className={`${isToggled ? "text-darkSlate opacity-70" : "text-ivory opacity-50"}`}>
-              Terms of Service</a>
-            <a href="/faq"
-           className={`${isToggled ? "text-darkSlate opacity-70" : "text-ivory opacity-50"}`}>
-              FAQ</a>
-            <a href="/support"
+              Support</Link>
+           
+            <Link to="/contact"
             className={`${isToggled ? "text-darkSlate opacity-70" : "text-ivory opacity-50"}`}>
-              Support</a>
+              Contact</Link>
           </nav>
           <nav>
           <h6 className={`text-2xl font-bold active ${isToggled ? "text-primary" : "text-ivory"}`}>

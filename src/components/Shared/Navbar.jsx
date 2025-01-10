@@ -138,65 +138,7 @@ const Navbar = () => {
         <i>Watch Party</i>
       </NavLink>
 
-      {/* About us */}
-      <NavLink
-        to="/aboutUs"
-        className={({ isActive }) =>
-          `${
-            isActive
-              ? `active text-2xl font-extrabold ${
-                  isToggled ? "text-primary" : "text-ivory"
-                }`
-              : `font-thin text-lg ${
-                  isToggled
-                    ? "text-gray-400 hover:text-primary"
-                    : "text-ivory hover:text-primary"
-                }`
-          }`
-        }
-      >
-        <i>About us</i>
-      </NavLink>
 
-      {/* Contact */}
-      <NavLink
-        to="/contact"
-        className={({ isActive }) =>
-          `${
-            isActive
-              ? `active text-2xl font-extrabold ${
-                  isToggled ? "text-primary" : "text-ivory"
-                }`
-              : `font-thin text-lg ${
-                  isToggled
-                    ? "text-gray-400 hover:text-primary"
-                    : "text-ivory hover:text-primary"
-                }`
-          }`
-        }
-      >
-        <i>Contact</i>
-      </NavLink>
-
-      {/*  Support  */}
-      <NavLink
-        to="/support"
-        className={({ isActive }) =>
-          `${
-            isActive
-              ? `active text-2xl font-extrabold ${
-                  isToggled ? "text-primary" : "text-ivory"
-                }`
-              : `font-thin text-lg ${
-                  isToggled
-                    ? "text-gray-400 hover:text-primary"
-                    : "text-ivory hover:text-primary"
-                }`
-          }`
-        }
-      >
-        <i> Support </i>
-      </NavLink>
     </>
   );
   return (

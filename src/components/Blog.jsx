@@ -26,7 +26,7 @@ const Blog = () => {
         {blogs.map((blog) => (
           <div
             key={blog.id}
-            className={`card card-compact h-[219px] md:h-[255px] lg:h-[330px]  shadow-xl
+            className={`card card-compact h-[205px] md:h-[250px] lg:h-[320px]  shadow-xl
                 shadow-primary rounded-xl ${
                   isToggled
                     ? "bg-[#ffffff] text-darkSlate"
@@ -38,11 +38,11 @@ const Blog = () => {
             <img
               src={blog.image}
               alt={blog.title}
-              className="w-full h-24 md:h-32 lg:h-44 object-cover  rounded-t-2xl"
+              className="w-full h-24 md:h-32 lg:h-40 object-cover  rounded-t-2xl"
             />
 
             {/* Blog Content */}
-            <div className="p-3 lg:p-6 space-y-2">
+            <div className="p-3 lg:p-6 space-y-1">
               <h3
                 className="text-sm md:text-base lg:text-xl font-bold"
                 title={blog.title}
@@ -53,7 +53,7 @@ const Blog = () => {
                 className="text-xs md:text-sm lg:text-base flex-grow opacity-70 pb-1 lg:pb-3"
                 title={blog.excerpt}
               >
-                {blog.excerpt?.substring(0, 60)}
+                {blog.excerpt?.substring(0, 50)}
               </p>
               <a
                 href={blog.link}
