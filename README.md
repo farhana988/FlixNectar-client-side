@@ -1,4 +1,4 @@
-# FlixNectar: Interactive Movie Exploration Platform
+# FlixNectar (Interactive Movie Exploration Platform)
 
 **FlixNectar** is an interactive and dynamic web application designed to provide users with a seamless movie exploration experience. The platform allows users to discover a wide variety of movies, track upcoming releases, manage their movie collections, and engage socially through features like Watch Parties. Whether you're a movie enthusiast or just looking for your next film, FlixNectar enhances the experience with personalized features and real-time updates.
 
