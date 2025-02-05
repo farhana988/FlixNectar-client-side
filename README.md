@@ -15,8 +15,8 @@
 - **Libraries/Packages**:
   - **axios** – For making HTTP requests
   - **react-icons** – For using vector icons in the UI
-- **react-toastify** – For displaying notifications.
-- **react-snowfall** – For adding a snowfall effect to the app, creating a wintery atmosphere.
+  - **react-toastify** – For displaying notifications.
+  - **react-snowfall** – For adding a snowfall effect to the app, creating a wintery atmosphere.
 
 ## 🔑 Key Features
 
